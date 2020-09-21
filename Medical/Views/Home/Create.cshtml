@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BE.Medicine>
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/LayoutPage.cshtml";
+}
+
+    <div class="site-section pb-0">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-7 pr-md-7 mb-5">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Select Medicine</label>
+                            <select name="select">
+                                @{ foreach (var item in Model)
+                                    {
+                                        <option value="@item"> @item.ToString() </option>
+}
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Select Image</label>
+                            <input type="file" class="form-control" id="image">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary py-3 px-5" value="Add">
+                        </div>
+                    </form>
+                </div>
+                
+            </div> <!-- .row -->
+
+        </div>
+    </div>
+
+
