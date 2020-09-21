@@ -1,0 +1,12 @@
+C:\Users\User\source\repos\WebApplication3\BE\bin\Debug\BE.dll
+C:\Users\User\source\repos\WebApplication3\BE\bin\Debug\BE.pdb
+C:\Users\User\source\repos\WebApplication3\BE\obj\Debug\BE.csprojAssemblyReference.cache
+C:\Users\User\source\repos\WebApplication3\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\WebApplication3\BE\obj\Debug\BE.dll
+C:\Users\User\source\repos\WebApplication3\BE\obj\Debug\BE.pdb
+C:\Users\Avital\Downloads\project\BE\bin\Debug\BE.dll
+C:\Users\Avital\Downloads\project\BE\bin\Debug\BE.pdb
+C:\Users\Avital\Downloads\project\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\Avital\Downloads\project\BE\obj\Debug\BE.dll
+C:\Users\Avital\Downloads\project\BE\obj\Debug\BE.pdb
+C:\Users\Avital\Downloads\project\BE\obj\Debug\BE.csprojAssemblyReference.cache
