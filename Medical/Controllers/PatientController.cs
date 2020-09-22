@@ -44,7 +44,7 @@ namespace Medical.Controllers
             {
                 PatientsLogic bl = new PatientsLogic();
                 
-                bl.AddPatient(patient);
+                //bl.AddPatient(patient);
                 return RedirectToAction("Patients");
 
             }

@@ -9,21 +9,22 @@ namespace BL
 {
     public class PatientsLogic
     {
-        public void AddPatient( Patient patient)
+        DAL.Patients dal = new DAL.Patients();
+        public void InsertPatients(Patient p)
         {
-            //Add your buesiness logic here
-            DAL.ReadWriteDrugs dal = new DAL.ReadWriteDrugs();
-            dal.InsertPatient(patient);
+            dal.InsertPatients(p);
         }
-
-        //public bool RemovePatients(int id)
-        //{
-        //    bool result = true;
-        //    //Add your buesiness logic here
-        //    DAL.ReadWriteDrugs dal = new DAL.ReadWriteDrugs();
-        //    dal.RemovePatients(id);
-        //    return result;
-        //}
-
+        public void Removepatients(int id)
+        {
+            dal.Removepatients(id);
+        }
+        public void UpdatePatients(Patient patient, int id)
+        {
+            dal.UpdatePatients(patient,id);
+        }
+        public IEnumerable<Patient> GetPatients()
+        {
+            return dal.GetPatients();
+        }
     }
 }

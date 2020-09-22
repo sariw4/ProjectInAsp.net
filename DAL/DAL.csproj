@@ -53,6 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Doctors.cs" />
+    <Compile Include="Drugs.cs" />
+    <Compile Include="mediDB.cs" />
+    <Compile Include="Patients.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

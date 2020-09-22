@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoctorsLogic.cs" />
     <Compile Include="DrugAdminLogic.cs" />
     <Compile Include="PatientsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
