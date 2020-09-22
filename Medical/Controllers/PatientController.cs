@@ -11,7 +11,7 @@ namespace Medical.Controllers
 {
     public class PatientController : Controller
     {
-        // GET: Patient
+        // GET: Patient1
         public ActionResult Index()
         {
             return View();
