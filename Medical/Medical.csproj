@@ -121,6 +121,7 @@
     <Content Include="fonts\icomoon\Read Me.txt" />
     <Content Include="fonts\icomoon\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="images\8165173_xl.jpg" />
     <Content Include="images\about.png" />
     <Content Include="images\Advil.jpg" />
     <Content Include="images\hero.jpg" />
@@ -168,6 +169,7 @@
     </Compile>
     <Compile Include="Models\DoctorsModel.cs" />
     <Compile Include="Models\DoctorViewModel.cs" />
+    <Compile Include="Models\ImageViewModel.cs" />
     <Compile Include="Models\MedicalContext.cs" />
     <Compile Include="Models\MedicineModel.cs" />
     <Compile Include="Models\MedicineViewModel.cs" />

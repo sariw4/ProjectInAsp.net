@@ -1,4 +1,5 @@
-﻿using Medical.Models;
+﻿using BL;
+using Medical.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,10 +31,33 @@ namespace Medical.Controllers
         //Add new Medicine
         public ActionResult Create()
         {
-            var Model = new MedicineModel();
-            return View(Model.Medicines);
+            var IVM = new ImageViewModel();
+            return View(IVM);
         }
 
+        // POST: Home/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            var ImgPath = collection["ImagePath"].ToString();
+            var path = Server.MapPath(Url.Content($"~/images/{ImgPath}"));
+            ImageTagsLogic bl = new ImageTagsLogic();
+            MedicineModel model = new MedicineModel();
+            List<string> tags = bl.GetTags(path); //check images with Imagga
+
+            //Pictures Service - Tal
+            if (tags.Exists(x => x == "prescription drug"))
+            {
+                // נמו, כאן ההוספה של התרופה לרשימת התרופות
+                /*
+                 * model.Add(collection[""])
+                 * */
+                return RedirectToAction("Catalog");
+            }
+            else return View();
+
+        }
+        /*
         // POST: Home/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -49,7 +73,7 @@ namespace Medical.Controllers
             {
                 return View();
             }
-        }
+        }*/
 
         // GET: Home/Edit/5
         public ActionResult Edit(int id)

@@ -9,3 +9,9 @@ C:\Users\Avital\Downloads\project\BE\bin\Debug\BE.pdb
 C:\Users\Avital\Downloads\project\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
 C:\Users\Avital\Downloads\project\BE\obj\Debug\BE.dll
 C:\Users\Avital\Downloads\project\BE\obj\Debug\BE.pdb
+C:\Users\user\Source\Repos\Avital-coder\CloudComputing\BE\bin\Debug\BE.dll
+C:\Users\user\Source\Repos\Avital-coder\CloudComputing\BE\bin\Debug\BE.pdb
+C:\Users\user\Source\Repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\user\Source\Repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.dll
+C:\Users\user\Source\Repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.pdb
+C:\Users\user\source\repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.csprojAssemblyReference.cache
