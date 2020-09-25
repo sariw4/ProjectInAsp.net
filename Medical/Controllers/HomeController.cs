@@ -27,6 +27,7 @@ namespace Medical.Controllers
         }
 
         // GET: Home/Create
+        //Add new Medicine
         public ActionResult Create()
         {
             var Model = new MedicineModel();
