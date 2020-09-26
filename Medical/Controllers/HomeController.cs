@@ -48,13 +48,15 @@ namespace Medical.Controllers
             //Pictures Service - Tal
             if (tags.Exists(x => x == "prescription drug"))
             {
-                // נמו, כאן ההוספה של התרופה לרשימת התרופות
-                /*
-                 * model.Add(collection[""])
-                 * */
+                model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"]);
                 return RedirectToAction("Catalog");
             }
-            else return View();
+            else
+            {
+                ViewBag.message = "The image that you added isn't a medicine!";
+                return View();
+            }
+                
 
         }
         /*
@@ -79,7 +81,7 @@ namespace Medical.Controllers
         public ActionResult Edit(int id)
         {
             MedicineModel model = new MedicineModel();
-            var Medicine = model.GetMedicine(id);
+            var Medicine = model.GetMedicines().First(m => m.Id == id);
             return View(Medicine);
         }
 
@@ -90,7 +92,7 @@ namespace Medical.Controllers
             MedicineModel model = new MedicineModel();
             try
             {
-                model.Update(id, collection["CommercialName"], collection["GenericName"], collection["Producer"]);
+                model.Update(id, collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["image"]);
                 return RedirectToAction("Catalog");
             }
             catch

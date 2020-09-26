@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project1
+namespace BL
 {
-    class DoctorsLogic
+    public class DoctorsLogic
     {
         DAL.Doctors dal = new DAL.Doctors();
         public void InsertDoctors(Doctor d)
@@ -20,7 +20,7 @@ namespace project1
         }
         public void UpdateDoctors(Doctor doc, int id)
         {
-            dal.UpdateDoctors(doc,id);
+            dal.UpdateDoctors(doc, id);
         }
         public IEnumerable<Doctor> GetDoctors()
         {
@@ -28,4 +28,5 @@ namespace project1
         }
     }
 }
+
 

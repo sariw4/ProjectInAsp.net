@@ -168,13 +168,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DoctorsModel.cs" />
-    <Compile Include="Models\DoctorViewModel.cs" />
     <Compile Include="Models\ImageViewModel.cs" />
-    <Compile Include="Models\MedicalContext.cs" />
     <Compile Include="Models\MedicineModel.cs" />
-    <Compile Include="Models\MedicineViewModel.cs" />
     <Compile Include="Models\PatientModel.cs" />
-    <Compile Include="Models\PatientViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

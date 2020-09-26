@@ -12,7 +12,7 @@ namespace Medical.Controllers
         // GET: Doctor
         public ActionResult Index()
         {
-           
+
             return View();
         }
         public ActionResult Doctors()
@@ -21,7 +21,7 @@ namespace Medical.Controllers
             var Doctors = model.GetDoctors();
             return View(Doctors);
         }
-      
+
         public ActionResult AddDoctor()
         {
             return View();
@@ -45,7 +45,7 @@ namespace Medical.Controllers
         public ActionResult Edit(int id)
         {
             DoctorsModel model = new DoctorsModel();
-            var Doctor = model.GetDoctor(id);
+            var Doctor = model.GetDoctors().First(m => m.Id == id);
             return View(Doctor);
         }
 
@@ -56,7 +56,7 @@ namespace Medical.Controllers
             DoctorsModel model = new DoctorsModel();
             try
             {
-                model.Update(id, collection["Name"], collection["Phone"], collection["Email"],collection["LicenceNumber"], collection["Expertist"]);
+                model.Update(id, collection["Name"], collection["Phone"], collection["Email"], collection["LicenceNumber"], collection["Expertist"]);
                 return RedirectToAction("Doctors");
             }
             catch
@@ -68,7 +68,7 @@ namespace Medical.Controllers
         // GET: Doctor/Delete/5
         public ActionResult Delete(int id)
         {
-            MedicineModel model = new MedicineModel();
+            DoctorsModel model = new DoctorsModel();
             model.delete(id);
             return RedirectToAction("Doctors");
         }

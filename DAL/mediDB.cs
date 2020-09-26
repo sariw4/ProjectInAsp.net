@@ -1,4 +1,5 @@
 ﻿using BE;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class mediDB:DbContext
+    class mediDB : DbContext
     {
-        public mediDB() : base("mediDB")//Name of the DB
+        public mediDB() : base("medicalDB")//Name of the DB
         {
         }
         public DbSet<Medicine> Drugs { set; get; }
@@ -23,5 +24,36 @@ namespace DAL
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+
     }
 }
+////public class DrugsInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<mediDB>
+//{
+//    protected override void Seed(mediDB context)
+//{
+//    var Drugs = new List<Medicine>
+//            {
+//                new Medicine
+//                {
+//                    CommercialName = "Acamol",
+//                    GenericName = "Acamol",
+//                    Producer = "Teva",
+//                    ActiveIngredients = "blabla",
+//                    DoseCharacteristic = "blabla",
+//                    ImageUrl = "acamol.jpf"
+//                },
+//                new Medicine
+//                {
+//                    CommercialName = "Advil",
+//                    GenericName = "Advil",
+//                    Producer = "Teva",
+//                    ActiveIngredients = "blabla",
+//                    DoseCharacteristic = "blabla",
+//                    ImageUrl = "advil.jpf"
+//                }
+//            };
+//    Drugs.ForEach(d => context.Drugs.Add(d));
+//    context.SaveChanges();
+//}
+//}

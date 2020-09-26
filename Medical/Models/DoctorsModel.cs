@@ -1,4 +1,5 @@
 ﻿using BE;
+using BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,50 +9,29 @@ namespace Medical.Models
 {
     public class DoctorsModel
     {
-        public List<Doctor> Doctors { get; set; }
+        DoctorsLogic bl = new DoctorsLogic();
 
         public DoctorsModel()
         {
-            Doctors = new List<Doctor>
-            {
-                new Doctor{Id=11,Name="ari",Phone="0529215864",Expertist="m",
-                LicenceNumber="1234",Email="g@gmail.com"},
-                new Doctor{Id=12,Name="rafi",Phone="0529215864",Expertist="u",
-                LicenceNumber="5436",Email="g@gmail.com"},
 
-            };
         }
-        public List<DoctorViewModel> GetDoctors()
+        public IEnumerable<Doctor> GetDoctors()
         {
-            List<DoctorViewModel> Result = new List<DoctorViewModel>();
-            DoctorViewModel m = null;
-            foreach (var item in Doctors)
-            {
-                m = new DoctorViewModel(item);
-                Result.Add(m);
-            }
-            return Result;
+            return bl.GetDoctors();
         }
-        public DoctorViewModel GetDoctor(int Id)
+        public void AddD(string name, string phone, string email, string LicenceNumber, string Expertist)
         {
-            DoctorViewModel Result = null;
-            var AllDoctors = GetDoctors();
-            Result = (from s in AllDoctors
-                      where s.Id == Id
-                      select s).Single<DoctorViewModel>();
-            return Result;
-        }
-        public void AddD(string name, string phone,string email, string LicenceNumber, string Expertist)
-        {
-            return;
+            Doctor doctor = new Doctor(name, phone, email, LicenceNumber, Expertist);
+            bl.InsertDoctors(doctor);
         }
         public void Update(int id, string name, string phone, string email, string LicenceNumber, string Expertist)
         {
-            var Medicine = GetDoctor(id);
+            Doctor doctor = new Doctor(name, phone, email, LicenceNumber, Expertist);
+            bl.UpdateDoctors(doctor, id);
         }
         public void delete(int id)
         {
-            var Medicine = GetDoctor(id);
+            bl.RemoveDoctors(id);
 
         }
     }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Medical.Models.DoctorViewModel>
+﻿@model IEnumerable<BE.Doctor>
 
 @{
     ViewBag.Title = "Doctors";
@@ -11,7 +11,6 @@
 <table class="table">
     <tr>
         <td height="100">
-
         </td>
     </tr>
     <tr>
@@ -22,10 +21,10 @@
             @Html.DisplayNameFor(model => model.Phone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Expertist)
+            @Html.DisplayNameFor(model => model.LicenceNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LicenceNumber)
+            @Html.DisplayNameFor(model => model.Expertist)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
@@ -43,10 +42,10 @@
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Expertist)
+                @Html.DisplayFor(modelItem => item.LicenceNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LicenceNumber)
+                @Html.DisplayFor(modelItem => item.Expertist)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
@@ -62,3 +61,4 @@
 <div>
     @Html.ActionLink("Add Doctor", "AddDoctor")
 </div>
+
