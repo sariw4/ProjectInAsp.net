@@ -39,7 +39,7 @@ namespace Medical.Models
         public User ReturnUser(string U,string P)
         {
             User user = new User(U, P);
-            user = bl.ReturnUser(user);
+            //user = bl.ReturnUser(user);
             return user;
         }
     }

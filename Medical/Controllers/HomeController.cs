@@ -61,7 +61,7 @@ namespace Medical.Controllers
             List<string> tags = bl.GetTags(path); //check images with Imagga
 
             //Pictures Service - Tal
-            if (tags.Exists(x => x == "prescription drug"))
+            if (tags.Intersect(bl.DrugsTags).Any())
             {
                 model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"]);
                 return RedirectToAction("Catalog");
@@ -70,8 +70,7 @@ namespace Medical.Controllers
             {
                 ViewBag.message = "The image that you added isn't a medicine!";
                 return View();
-            }
-                
+            }              
 
         }
       

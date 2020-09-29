@@ -32,10 +32,21 @@ namespace BL
                 {
                     break;
                 }
-
             }
 
             return Result;
         }
+
+        public List<string> DrugsTags = new List<string>
+        {
+            "prescription drug",
+            "bottle",
+            "pill bottle",
+            "pill",
+            "pills",
+            "medicine",
+            "container"
+
+        };
     }
 }
