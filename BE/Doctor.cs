@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Doctor
+    public class Doctor : User
     {
         public int Id { get; set; }
-
-        public string Name { get; set; }
+        [DisplayName("First Name")]
+        public string FirstName { get; set; }
+        [DisplayName("Last Name")]
+        public string LastName { get; set; }
 
         [DisplayName("Phone Number")]
 
@@ -25,9 +27,12 @@ namespace BE
 
         public string Email { get; set; }
 
-        public Doctor(string name, string phone, string licenceNumber, string expertist, string email)
+        public Doctor(string userName, string password, string firstName, string lastName, string phone, string licenceNumber, string expertist, string email)
         {
-            Name = name;
+            UserName = userName;
+            Password = password;
+            FirstName = firstName;
+            LastName = lastName;
             Phone = phone;
             LicenceNumber = licenceNumber;
             Expertist = expertist;
@@ -37,6 +42,17 @@ namespace BE
         public Doctor()
         {
 
+        }
+        public Doctor(Doctor D)
+        {
+            UserName = D.UserName;
+            Password = D.Password;
+            FirstName = D.FirstName;
+            LastName = D.LastName;
+            Phone = D.Phone;
+            LicenceNumber = D.LicenceNumber;
+            Expertist = D.Expertist;
+            Email = D.Email;
         }
 
     }

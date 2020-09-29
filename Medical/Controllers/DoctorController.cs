@@ -32,7 +32,7 @@ namespace Medical.Controllers
             DoctorsModel model = new DoctorsModel();
             try
             {
-                model.AddD(collection["Name"], collection["Phone"], collection["Email"], collection["LicenceNumber"], collection["Expertist"]);
+                model.AddD(collection["FirstName"], collection["LastName"],  collection["Phone"], collection["Email"], collection["LicenceNumber"], collection["Expertist"]);
                 return RedirectToAction("Doctors");
             }
             catch
@@ -56,7 +56,7 @@ namespace Medical.Controllers
             DoctorsModel model = new DoctorsModel();
             try
             {
-                model.Update(id, collection["Name"], collection["Phone"], collection["Email"], collection["LicenceNumber"], collection["Expertist"]);
+                model.Update(id,collection["FirstName"], collection["LastName"], collection["Phone"], collection["Email"], collection["LicenceNumber"], collection["Expertist"]);
                 return RedirectToAction("Doctors");
             }
             catch

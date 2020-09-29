@@ -42,7 +42,7 @@ namespace Medical.Controllers
             PatientModel model = new PatientModel();
             try
             {
-                model.Add(collection["Name"], collection["DateofBirth"], collection["Phone"], collection["Email"]);
+                model.Add(collection["FirstName"], collection["LastName"], collection["DateofBirth"], collection["Phone"], collection["Email"]);
                 return RedirectToAction("Patients");
 
             }
@@ -67,7 +67,7 @@ namespace Medical.Controllers
             PatientModel model = new PatientModel();
             try
             {
-                model.Update(id, collection["Name"], collection["DateofBirth"], collection["Phone"], collection["Email"]);
+                model.Update(id, collection["FirstName"], collection["LastName"], collection["DateofBirth"], collection["Phone"], collection["Email"]);
                 return RedirectToAction("Patients");
             }
             catch

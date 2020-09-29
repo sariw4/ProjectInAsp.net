@@ -44,7 +44,8 @@ namespace DAL
                 using (var ctx = new mediDB())
                 {
                     Patient tmp = ctx.Patients.First(m => m.Id == id);
-                    tmp.Name = patient.Name;
+                    tmp.FirstName = patient.FirstName;
+                    tmp.LastName = patient.LastName;
                     tmp.DateOfBirth = patient.DateOfBirth;
                     tmp.Phone = patient.Phone;
                     tmp.Email = patient.Email;

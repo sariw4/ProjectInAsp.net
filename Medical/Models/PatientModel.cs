@@ -19,18 +19,18 @@ namespace Medical.Models
             return bl.GetPatients();
 
         }
-        public void Update(int id, string name, string date, string phone, string email)
+        public void Update(int id, string firstname, string lastname,string date, string phone, string email)
         {
             List<Medicine> drugs = new List<Medicine>();
             DateTime d = Convert.ToDateTime(date);
-            Patient patient = new Patient(name, d, phone, email, drugs);
+            Patient patient = new Patient(firstname, lastname, d, phone, email, drugs);
             bl.UpdatePatients(patient, id);
         }
-        public void Add(string name, string date, string phone, string email)
+        public void Add(string firstname, string lastname, string date, string phone, string email)
         {
             List<Medicine> Drugs = new List<Medicine>();
             DateTime d = Convert.ToDateTime(date);
-            Patient patient = new Patient(name, d, phone, email, Drugs);
+            Patient patient = new Patient(firstname, lastname, d, phone, email, Drugs);
             bl.InsertPatients(patient);
         }
 

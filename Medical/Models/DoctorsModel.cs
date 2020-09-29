@@ -19,20 +19,28 @@ namespace Medical.Models
         {
             return bl.GetDoctors();
         }
-        public void AddD(string name, string phone, string email, string LicenceNumber, string Expertist)
+        public void AddD(string firstname, string lastname, string phone, string email, string LicenceNumber, string Expertist)
         {
-            Doctor doctor = new Doctor(name, phone, email, LicenceNumber, Expertist);
+            string Password = Convert.ToString(new Random());
+            Doctor doctor = new Doctor(lastname, Password, firstname, lastname, phone, email, LicenceNumber, Expertist);
             bl.InsertDoctors(doctor);
         }
-        public void Update(int id, string name, string phone, string email, string LicenceNumber, string Expertist)
+        public void Update(int id, string firstname, string lastname, string phone, string email, string LicenceNumber, string Expertist)
         {
-            Doctor doctor = new Doctor(name, phone, email, LicenceNumber, Expertist);
+
+            Doctor doctor = new Doctor(null, null, firstname, lastname, phone, email, LicenceNumber, Expertist);
             bl.UpdateDoctors(doctor, id);
         }
         public void delete(int id)
         {
             bl.RemoveDoctors(id);
 
+        }
+        public User ReturnUser(string U,string P)
+        {
+            User user = new User(U, P);
+            user = bl.ReturnUser(user);
+            return user;
         }
     }
 }
