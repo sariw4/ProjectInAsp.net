@@ -12,12 +12,14 @@ namespace DAL
 {
     class mediDB : DbContext
     {
-        public mediDB() : base("medicalDB")//Name of the DB
+        public mediDB() : base("medDB")//Name of the DB
         {
         }
         public DbSet<Medicine> Drugs { set; get; }
         public DbSet<Patient> Patients { set; get; }
         public DbSet<Doctor> Doctors { set; get; }
+        public DbSet<Admin> Admin { set; get; }
+        public DbSet<Prescription> Prescriptions { set; get; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)//remove the 's' from table name

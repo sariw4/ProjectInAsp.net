@@ -73,6 +73,13 @@ namespace DAL
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
+
+        public Doctor returnDoctor(User user)
+        {
+            IEnumerable<Doctor> result = GetDoctors();
+            Doctor doc = result.FirstOrDefault(d => d.UserName == user.UserName && d.Password == user.Password);
+            return doc;
+        }
     }
 
 }

@@ -26,6 +26,10 @@ namespace BL
         {
             return dal.GetDoctors();
         }
+        public Doctor returnDoctor(User user)
+        {
+            return dal.returnDoctor(user);
+        }
     }
 }
 

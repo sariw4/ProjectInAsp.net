@@ -9,7 +9,6 @@ namespace BE
 {
     public class Doctor : User
     {
-        public int Id { get; set; }
         [DisplayName("First Name")]
         public string FirstName { get; set; }
         [DisplayName("Last Name")]

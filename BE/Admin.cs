@@ -33,6 +33,7 @@ namespace BE
             Phone = A.Phone;
             Mail = A.Mail;
         }
+
     }
     
 }
