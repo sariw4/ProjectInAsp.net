@@ -5,28 +5,48 @@
     Layout = "~/Views/LayoutPage.cshtml";
 }
 
-<div class="site-section pb-0">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-md-7 pr-md-7 mb-5">
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="name">Select Medicine</label>
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="name">Select Image</label>
-                        <input type="file" class="form-control" name="ImagePath">
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary py-3 px-5" value="Add">
-                    </div>
-                </form>
-            </div>
+    <div class="site-section pb-0">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-7 pr-md-7 mb-5">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Commercial Name</label>
+                            <input name="CommercialName" type="text" class="form-control" id="CommercialName">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Generic Name</label>
+                            <input name="GenericName" type="text" class="form-control" id="GenericName">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Producer</label>
+                            <input name="Producer" type="text" class="form-control" id="Producer">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Active Ingredients</label>
+                            <input name="ActiveIngredients" type="text" class="form-control" id="ActiveIngredients">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Dose Characteristic </label>
+                            <input name="DoseCharacteristic" type="text" class="form-control" id="DoseCharacteristic">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Select Image</label>
+                            <input name="ImagePath" type="file" class="form-control" id="ImagePath">
+                            <label for="name" style=" color:red ">@ViewBag.message </label>
+                        </div>
 
-        </div> <!-- .row -->
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary py-3 px-5" value="Add Medicine">
+                        </div>
+                    </form>
+                </div>
 
+
+
+            </div> <!-- .row -->
+
+        </div>
     </div>
-</div>
 
 

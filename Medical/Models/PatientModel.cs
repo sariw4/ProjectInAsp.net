@@ -1,4 +1,5 @@
 ﻿using BE;
+using BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,57 +9,36 @@ namespace Medical.Models
 {
     public class PatientModel
     {
-        
-            public List<Patient> Patients { get; set; }
+        PatientsLogic bl = new PatientsLogic();
+        public PatientModel()
+        {
 
-            public PatientModel()
-            {
-                Patients = new List<Patient>
-                {
-                  new Patient{Id=11,Name="Avi",DateOfBirth=new DateTime(2000,3,1),Phone="0539620601",Email="d@gmailcom"},
-                  new Patient{Id=12,Name="Shalom",DateOfBirth=new DateTime(1978,4,11),Phone="0534720601",Email="g@gmailcom"}
-                };
-            }
+        }
+        public IEnumerable<Patient> GetPatients()
+        {
+            return bl.GetPatients();
 
-            public List<PatientViewModel> GetPatients()
-            {
-                List<PatientViewModel> Result = new List<PatientViewModel>();
-                PatientViewModel m = null;
-                foreach (var item in Patients)
-                {
-                    m = new PatientViewModel(item);
-                    Result.Add(m);
-                }
-                return Result;
-            }
-            public PatientViewModel GetPatient(int Id)
-            {
-                PatientViewModel Result = null;
-                var AllPatients = GetPatients();
-                Result = (from s in AllPatients
-                          where s.Id == Id
-                          select s).Single<PatientViewModel>();
-                return Result;
+        }
+        public void Update(int id, string firstname, string lastname,string date, string phone, string email)
+        {
+            List<Medicine> drugs = new List<Medicine>();
+            DateTime d = Convert.ToDateTime(date);
+            Patient patient = new Patient(firstname, lastname, d, phone, email, drugs);
+            bl.UpdatePatients(patient, id);
+        }
+        public void Add(string firstname, string lastname, string date, string phone, string email)
+        {
+            List<Medicine> Drugs = new List<Medicine>();
+            DateTime d = Convert.ToDateTime(date);
+            Patient patient = new Patient(firstname, lastname, d, phone, email, Drugs);
+            bl.InsertPatients(patient);
+        }
 
-            }
+        public void delete(int id)
+        {
+            bl.Removepatients(id);
 
-            public void Update(int id, string name, string date, string phone, string email)
-            {
-                var Medicine = GetPatient(id);
+        }
 
-
-
-            }
-            public void Add(string name, string date,string phone,string email)
-            {
-                return;
-            }
-
-            public void delete(int id)
-            {
-                var Medicine = GetPatient(id);
-
-            }
-        
     }
 }

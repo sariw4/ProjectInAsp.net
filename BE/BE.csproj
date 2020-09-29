@@ -42,7 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs" />
     <Compile Include="Doctor.cs" />
+    <Compile Include="Prescription.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="ImageContent.cs" />
     <Compile Include="Medicine.cs" />
     <Compile Include="Patient.cs" />

@@ -1,4 +1,5 @@
-﻿using BL;
+﻿using BE;
+using BL;
 using Medical.Models;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,20 @@ namespace Medical.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Index(FormCollection collection)
+        {
+            DoctorsModel model = new DoctorsModel();
+            try
+            {
+                User user=  model.ReturnUser(collection["uname"], collection["psw"]);
+                return RedirectToAction("Catalog");
+            }
+            catch
+            {
+                return View();
+            }
         }
         public ActionResult Catalog()
         {
@@ -48,38 +63,22 @@ namespace Medical.Controllers
             //Pictures Service - Tal
             if (tags.Exists(x => x == "prescription drug"))
             {
-                // נמו, כאן ההוספה של התרופה לרשימת התרופות
-                /*
-                 * model.Add(collection[""])
-                 * */
+                model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"]);
                 return RedirectToAction("Catalog");
             }
-            else return View();
-
-        }
-        /*
-        // POST: Home/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            MedicineModel model = new MedicineModel();
-            try
+            else
             {
-                model.Add(collection["select"], collection["image"]);
-                return RedirectToAction("Catalog");
-
-            }
-            catch
-            {
+                ViewBag.message = "The image that you added isn't a medicine!";
                 return View();
             }
-        }*/
+                
 
-        // GET: Home/Edit/5
+        }
+      
         public ActionResult Edit(int id)
         {
             MedicineModel model = new MedicineModel();
-            var Medicine = model.GetMedicine(id);
+            var Medicine = model.GetMedicines().First(m => m.Id == id);
             return View(Medicine);
         }
 
@@ -90,7 +89,7 @@ namespace Medical.Controllers
             MedicineModel model = new MedicineModel();
             try
             {
-                model.Update(id, collection["CommercialName"], collection["GenericName"], collection["Producer"]);
+                model.Update(id, collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["image"]);
                 return RedirectToAction("Catalog");
             }
             catch

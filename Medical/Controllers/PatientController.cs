@@ -32,19 +32,17 @@ namespace Medical.Controllers
         public ActionResult AddPatient()
         {
             var Model = new PatientModel();
-            return View(Model.Patients);
+            return View(Model.GetPatients());
         }
 
         // POST: Patient/Create
         [HttpPost]
-        public ActionResult AddPatient(Patient patient)
+        public ActionResult AddPatient(FormCollection collection)
         {
-            //PatientModel model = new PatientModel();
+            PatientModel model = new PatientModel();
             try
             {
-                PatientsLogic bl = new PatientsLogic();
-                
-                //bl.AddPatient(patient);
+                model.Add(collection["FirstName"], collection["LastName"], collection["DateofBirth"], collection["Phone"], collection["Email"]);
                 return RedirectToAction("Patients");
 
             }
@@ -58,7 +56,7 @@ namespace Medical.Controllers
         public ActionResult Edit(int id)
         {
             PatientModel model = new PatientModel();
-            var Patient = model.GetPatient(id);
+            var Patient = model.GetPatients().First(m => m.Id == id);
             return View(Patient);
         }
 
@@ -69,7 +67,7 @@ namespace Medical.Controllers
             PatientModel model = new PatientModel();
             try
             {
-                model.Update(id, collection["Name"], collection["DateofBirth"], collection["Phone"], collection["Email"]);
+                model.Update(id, collection["FirstName"], collection["LastName"], collection["DateofBirth"], collection["Phone"], collection["Email"]);
                 return RedirectToAction("Patients");
             }
             catch

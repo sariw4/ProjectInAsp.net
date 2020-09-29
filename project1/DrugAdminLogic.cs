@@ -20,7 +20,7 @@ namespace BL
         }
         public void UpdateDrugs(Medicine medicine, int id)
         {
-            dal.UpdateDrugs(medicine,id);
+            dal.UpdateDrugs(medicine, id);
         }
         public IEnumerable<Medicine> GetMedicines()
         {

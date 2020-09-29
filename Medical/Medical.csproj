@@ -103,6 +103,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="css\jquery.fancybox.min.css" />
+    <Content Include="css\Login.css" />
     <Content Include="css\magnific-popup.css" />
     <Content Include="css\mediaelementplayer.css" />
     <Content Include="css\owl.carousel.min.css" />
@@ -135,6 +136,7 @@
     <Content Include="images\person_2.jpg" />
     <Content Include="images\person_3.jpg" />
     <Content Include="images\Nurofen.jpg" />
+    <Content Include="images\unnamed.png" />
     <Content Include="js\aos.js" />
     <Content Include="js\bootstrap-datepicker.min.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -154,6 +156,7 @@
     <Content Include="js\popper.min.js" />
     <Content Include="js\slick.min.js" />
     <Content Include="js\typed.js" />
+    <Content Include="login.html" />
     <Content Include="main.html" />
     <Content Include="VisualStudio.gitignore" />
     <Content Include="Web.config" />
@@ -168,13 +171,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DoctorsModel.cs" />
-    <Compile Include="Models\DoctorViewModel.cs" />
     <Compile Include="Models\ImageViewModel.cs" />
-    <Compile Include="Models\MedicalContext.cs" />
     <Compile Include="Models\MedicineModel.cs" />
-    <Compile Include="Models\MedicineViewModel.cs" />
     <Compile Include="Models\PatientModel.cs" />
-    <Compile Include="Models\PatientViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

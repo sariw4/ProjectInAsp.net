@@ -3,63 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using BE;
+using BL;
 
 namespace Medical.Models
 {
     public class MedicineModel
     {
-        public List<Medicine> Medicines { get; set; }
+        DrugAdminLogic bl = new DrugAdminLogic();
 
         public MedicineModel()
         {
-            Medicines = new List<Medicine>
-            {
-                new Medicine{Id=11,CommercialName="a",GenericName="a",ActiveIngredients="g" ,
-                DoseCharacteristic="t",ImageUrl=@"/images/Nurofen.jpg",Producer="t"},
-                new Medicine{Id=12,CommercialName="r",GenericName="ae",ActiveIngredients="ge" ,
-                DoseCharacteristic="te",ImageUrl=@"/images/Advil.jpg",Producer="te"}
 
-            };
         }
-       
-        public List<MedicineViewModel> GetMedicines()
+        public IEnumerable<Medicine> GetMedicines()
         {
-            List<MedicineViewModel> Result = new List<MedicineViewModel>();
-            MedicineViewModel m = null;
-            foreach (var item in Medicines)
-            {
-                m = new MedicineViewModel(item);
-                Result.Add(m);
-            }
-            return Result;
+            return bl.GetMedicines();
         }
-        public MedicineViewModel GetMedicine(int Id)
+        public void Update(int id, string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, string image)
         {
-            MedicineViewModel Result = null;
-            var AllMedicines = GetMedicines();
-            Result = (from s in AllMedicines
-                      where s.Id == Id
-                      select s).Single<MedicineViewModel>();
-            return Result;
-
+            Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, image);
+            bl.UpdateDrugs(medicine, id);
         }
-
-        public void Update(int id, string Commerical, string Generic, string P)
+        public void Add(string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, string image)
         {
-            var Medicine = GetMedicine(id);
-            
-
-
+            Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, @"/images/" + image);
+            bl.AddDrugs(medicine);
         }
-        public void Add(string m, string image)
-        {
-            return;
-        }
-        
+
         public void delete(int id)
         {
-            var Medicine = GetMedicine(id);
-            
+            bl.RemoveDrugs(id);
         }
     }
 }
