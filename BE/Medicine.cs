@@ -28,11 +28,13 @@ namespace BE
         public string ImageUrl { get; set; }
         //public DateTime BeginT { get; set; }
         //public DateTime EndT { get; set; }
+        
+        public string NDC { get; set; }
         public string ToString()
         {
-            return CommercialName + " " + GenericName + " " + Producer + " " + ActiveIngredients + " " + DoseCharacteristic + " ";
+            return CommercialName + " " + GenericName + " " + Producer + " " + ActiveIngredients + " " + DoseCharacteristic + " " + NDC + " ";
         }
-        public Medicine(string commercialName, string genericName, string producer, string activeIngredients, string doseCharacteristic, string imageUrl)
+        public Medicine(string commercialName, string genericName, string producer, string activeIngredients, string doseCharacteristic, string imageUrl, string ndc)
         {
             CommercialName = commercialName;
             GenericName = genericName;
@@ -40,6 +42,7 @@ namespace BE
             ActiveIngredients = activeIngredients;
             DoseCharacteristic = doseCharacteristic;
             ImageUrl = imageUrl;
+            NDC = ndc;
         }
         public Medicine()
         {

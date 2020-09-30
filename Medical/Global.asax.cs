@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using DAL;
 
 namespace Medical
 {
@@ -13,6 +15,8 @@ namespace Medical
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            Database.SetInitializer<mediDB>(new DropCreateDatabaseIfModelChanges<mediDB>());
+            
         }
     }
 }

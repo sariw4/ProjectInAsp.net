@@ -129,13 +129,10 @@
     <Content Include="images\img_2.jpg" />
     <Content Include="images\img_3.jpg" />
     <Content Include="images\img_4.jpg" />
-    <Content Include="images\lab-1.svg" />
-    <Content Include="images\lab-2.svg" />
     <Content Include="images\patient_1.jpg" />
     <Content Include="images\person_1.jpg" />
     <Content Include="images\person_2.jpg" />
     <Content Include="images\person_3.jpg" />
-    <Content Include="images\Nurofen.jpg" />
     <Content Include="images\unnamed.png" />
     <Content Include="js\aos.js" />
     <Content Include="js\bootstrap-datepicker.min.js" />
@@ -192,7 +189,6 @@
     <Content Include="fonts\icomoon\fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon\fonts\icomoon.woff" />
     <Content Include="fonts\icomoon\selection.json" />
-    <Content Include="images\.DS_Store" />
     <Content Include=".DS_Store" />
     <None Include="packages.config" />
     <Content Include="scss\.DS_Store" />
@@ -320,6 +316,10 @@
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{036a2037-6f7e-4019-8af0-ae901016cf67}</Project>
       <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{dd43a379-6881-4203-8346-034b473d882f}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\project1\BL.csproj">
       <Project>{b403e57c-48ff-4231-ab41-32deac26ed46}</Project>

@@ -63,7 +63,7 @@ namespace Medical.Controllers
             //Pictures Service - Tal
             if (tags.Intersect(bl.DrugsTags).Any())
             {
-                model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"]);
+                model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"], collection["NDC"]);
                 return RedirectToAction("Catalog");
             }
             else
@@ -88,7 +88,7 @@ namespace Medical.Controllers
             MedicineModel model = new MedicineModel();
             try
             {
-                model.Update(id, collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["image"]);
+                model.Update(id, collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["image"], collection["NDC"]);
                 return RedirectToAction("Catalog");
             }
             catch
