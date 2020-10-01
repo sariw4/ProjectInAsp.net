@@ -62,6 +62,7 @@
     <Compile Include="Admins.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Doctors.cs" />
+    <Compile Include="DrugAnalysis.cs" />
     <Compile Include="Drugs.cs" />
     <Compile Include="ImageAnalysis.cs" />
     <Compile Include="mediDB.cs" />
