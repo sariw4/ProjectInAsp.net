@@ -32,7 +32,7 @@ namespace Medical.Controllers
             DoctorsModel model = new DoctorsModel();
             try
             {
-                model.AddD(collection["FirstName"], collection["LastName"],  collection["Phone"], collection["Email"], collection["LicenceNumber"], collection["Expertist"]);
+                ViewBag.mailMessage = model.AddD(collection["FirstName"], collection["LastName"],  collection["Phone"], collection["Email"], collection["LicenceNumber"], collection["Expertist"]);
                 return RedirectToAction("Doctors");
             }
             catch
