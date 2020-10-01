@@ -61,6 +61,7 @@
     <Compile Include="DoctorsLogic.cs" />
     <Compile Include="DrugAdminLogic.cs" />
     <Compile Include="ImageTagsLogic.cs" />
+    <Compile Include="LicensedMedicineLogic.cs" />
     <Compile Include="PatientsLogic.cs" />
     <Compile Include="PrescriptionsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
