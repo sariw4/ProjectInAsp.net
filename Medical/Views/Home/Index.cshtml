@@ -56,11 +56,18 @@
                     <div class="col-6 col-xl-2">
                         <div class="mb-0 site-logo"><a href="index.html" class="mb-0">Medically<span class="text-primary">.</span> </a></div>
                     </div>
+
+                    @if (RouteConfig.user!=null)
+                    {
                     <div class="col-12 col-md-10 d-none d-xl-block">
                         <nav class="site-navigation position-relative text-right" role="navigation">
 
                             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                                @Html.ActionLink("Home", "Index", "Home") &nbsp; &nbsp;
+                                @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                                {
+                                    @Html.ActionLink("Home", "Index", "Home")
+                                }
+                                &nbsp; &nbsp;
                                 <li class="has-children">
                                     <a href="services.html" class="nav-link">Services</a>
                                     <ul class="dropdown">
@@ -79,17 +86,26 @@
                                         </li>
                                     </ul>
                                 </li>
+                                @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                                {
+                                    @Html.ActionLink("Patients", "Patients", "Patient")
+                                }
+                                &nbsp; &nbsp;
+                                @if (RouteConfig.user.ReturnType() == "Admin")
+                                {
+                                    @Html.ActionLink("Doctors", "Doctors", "Doctor")
+                                    
+                                    @Html.ActionLink("Medicines Catalog", "Catalog", "Home")
+                                    
 
-                                @Html.ActionLink("Patients", "Patients", "Patient") &nbsp; &nbsp;
-                                @Html.ActionLink("Doctors", "Doctors", "Doctor") &nbsp; &nbsp;
-                                @Html.ActionLink("Medicines Catalog", "Catalog", "Home") &nbsp; &nbsp;
-
-                                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                                }
 
 
                             </ul>
                         </nav>
                     </div>
+                    }
 
                     <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
 
@@ -115,7 +131,7 @@
         </div>
         <div id="id01" class="modal" >
 
-            <form class="modal-content animate" action="/action_page.php" method="post">
+            <form class="modal-content animate"  method="post">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                     <img src="/images/unnamed.png" alt="Avatar" class="avatar">
@@ -128,8 +144,7 @@
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
 
-                    <input type="submit" value="Login" class="btn btn-primary" />
-
+                    <button type="submit">Login</button>
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>

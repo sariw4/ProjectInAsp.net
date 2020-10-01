@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BE.Prescription>
+
+@{
+    ViewBag.Title = "Prescriptions";
+    Layout = "~/Views/LayoutPage.cshtml";
+}
+
+<h2>Prescriptions</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medicine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeginTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinishTime)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medicine.CommercialName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeginTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinishTime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Add Prescription", "Prescription_", new { id =ViewBag.id})
+</div>

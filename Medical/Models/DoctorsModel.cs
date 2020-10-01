@@ -40,10 +40,11 @@ namespace Medical.Models
         }
         public User ReturnUser(string U,string P)
         {
-            User user = new User(U, P);
+            User user = new User(U, P,null,null);
             user = bl.returnDoctor(user);
             if (user==null)
-            { 
+            {
+                user = new User(U, P,null,null);
                 user = bl1.returnAdmin(user); 
             }
             return user;

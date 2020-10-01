@@ -23,9 +23,32 @@ namespace Medical.Controllers
             return View(Patients);
         }
         // GET: Patient/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Prescriptions(int id)
         {
+            PatientModel model = new PatientModel();
+            var Prescriptions = model.GetPrescriptionsById(id);
+            ViewBag.id = id;
+            return View(Prescriptions);
+        }
+        public ActionResult Prescription_(int id)
+        {
+            ViewBag.id = id;
             return View();
+        }
+        [HttpPost]
+        public ActionResult Prescription_(FormCollection collection)
+        {
+            PatientModel model = new PatientModel();
+            try
+            {
+                model.AddPrescription(collection["PatientID"],collection["DoctorFirstName"], collection["DoctorLastName"], collection["BeginDate"], collection["FinishDate"]);
+                return RedirectToAction("Prescriptions");
+
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Patient/Create
