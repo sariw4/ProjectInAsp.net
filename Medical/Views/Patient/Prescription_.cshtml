@@ -1,4 +1,4 @@
-﻿@model BE.Patient
+﻿
 @{
     ViewBag.Title = "Prescription_";
     Layout = "~/Views/LayoutPage.cshtml";
@@ -10,12 +10,12 @@
             <div class="col-md-7 pr-md-7 mb-5">
                 <form action="#" method="post">
                     <div class="form-group">
-                        <label for="PatientID">Patient ID</label>
-                        <input name="PatientID" type="text" value="@ViewBag.id" class="form-control" id="PatientID" disabled>
+                        <label for="PatientId">Patient ID</label>
+                        <input name="PatientId" type="text" value="@ViewBag.id" class="form-control" id="PatientId" disabled>
                     </div>
                     <div class="form-group">
                         <label for="DoctorFirstName">Doctor First Name</label>
-                        <input name="DoctorFirstName" type="text" value="y" class="form-control" id="DoctorFirstName">
+                        <input name="DoctorFirstName" type="text" value="@RouteConfig.user.FirstName" class="form-control" id="DoctorFirstName">
                     </div>
                     <div class="form-group">
                         <label for="DoctorLastName">Doctor Last Name</label>
@@ -36,6 +36,7 @@
                     </div>
                 </form>
             </div>
+            
 
 
 

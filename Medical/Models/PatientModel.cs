@@ -46,10 +46,10 @@ namespace Medical.Models
         }
         public void AddPrescription(string PatientId,string docfirst,string doclast,string begin,string finish)
         {
-            int id = Convert.ToInt32(PatientId);
+            int patientID = Convert.ToInt32(PatientId);
             DateTime begindate = Convert.ToDateTime(begin);
             DateTime finishdate = Convert.ToDateTime(finish);
-            Prescription prescription = new Prescription(id, docfirst, doclast,null, begindate, finishdate);
+            Prescription prescription = new Prescription(patientID, docfirst, doclast,null, begindate, finishdate);
             bl1.InsertPrescription(prescription);
         }
 
