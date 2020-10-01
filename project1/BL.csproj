@@ -57,10 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminsLogic.cs" />
     <Compile Include="DoctorsLogic.cs" />
     <Compile Include="DrugAdminLogic.cs" />
     <Compile Include="ImageTagsLogic.cs" />
     <Compile Include="PatientsLogic.cs" />
+    <Compile Include="PrescriptionsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

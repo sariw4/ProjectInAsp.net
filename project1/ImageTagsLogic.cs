@@ -20,7 +20,7 @@ namespace BL
 
             dal.GetTags(DrugImage);
 
-            var Threshold = 60.0;
+            var Threshold = 50.0;
 
             foreach (var item in DrugImage.Details)
             {
@@ -32,10 +32,21 @@ namespace BL
                 {
                     break;
                 }
-
             }
 
             return Result;
         }
+
+        public List<string> DrugsTags = new List<string>
+        {
+            "prescription drug",
+            "bottle",
+            "pill bottle",
+            "pill",
+            "pills",
+            "medicine",
+            "container"
+
+        };
     }
 }

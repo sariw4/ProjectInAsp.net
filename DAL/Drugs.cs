@@ -60,7 +60,7 @@ namespace DAL
             try
             {
                 List<Medicine> result = new List<Medicine>();
-                result.Add(new Medicine("y", "u", "o", "g", "o", @"/images/Advil.jpg"));
+                result.Add(new Medicine("y", "u", "o", "g", "o", @"/images/Advil.jpg", "150-185"));
                 using (var ctx = new mediDB())
                 {
                     foreach (var drug in ctx.Drugs)

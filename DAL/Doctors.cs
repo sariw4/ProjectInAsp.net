@@ -44,7 +44,8 @@ namespace DAL
                 using (var ctx = new mediDB())
                 {
                     Doctor tmp = ctx.Doctors.First(m => m.Id == id);
-                    tmp.Name = doc.Name;
+                    tmp.LastName = doc.LastName;
+                    tmp.FirstName = doc.FirstName;
                     tmp.Phone = doc.Phone;
                     tmp.LicenceNumber = doc.LicenceNumber;
                     tmp.Expertist = doc.Expertist;
@@ -71,6 +72,13 @@ namespace DAL
                 return result;
             }
             catch (Exception e) { throw new Exception(e.Message); }
+        }
+
+        public Doctor returnDoctor(User user)
+        {
+            IEnumerable<Doctor> result = GetDoctors();
+            Doctor doc = result.FirstOrDefault(d => d.UserName == user.UserName && d.Password == user.Password);
+            return doc;
         }
     }
 

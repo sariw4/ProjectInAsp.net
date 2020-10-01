@@ -11,7 +11,10 @@ namespace BE
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        [DisplayName("First Name")]
+        public string FirstName { get; set; }
+        [DisplayName("Last Name")]
+        public string LastName { get; set; }
 
         [DisplayName("Date of Birth")]
         public DateTime DateOfBirth { get; set; }
@@ -22,9 +25,10 @@ namespace BE
 
         public List<Medicine> Drugs { get; set; }
 
-        public Patient(string name, DateTime date, string phone, string email, List<Medicine> drugs)
+        public Patient(string firstname, string lastname, DateTime date, string phone, string email, List<Medicine> drugs)
         {
-            Name = name;
+            FirstName = firstname;
+            LastName = lastname;
             DateOfBirth = date;
             Phone = phone;
             Email = email;
