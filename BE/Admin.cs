@@ -8,7 +8,6 @@ namespace BE
 {
    public class Admin:User
     {
-        public string Name { get; set; }
         public string Phone { get; set; }
         public string Mail { get; set; }
 
@@ -17,11 +16,12 @@ namespace BE
         {
 
         }
-        public Admin(string username ,string password,string name, string phone, string mail)
+        public Admin(string username ,string password,string firstname,string lastname, string phone, string mail)
         {
             UserName = username;
             Password = password;
-            Name = name;
+            FirstName = firstname;
+            LastName = lastname;
             Phone = phone;
             Mail = mail;
         }
@@ -29,9 +29,14 @@ namespace BE
         {
             UserName = A.UserName;
             Password = A.Password;
-            Name = A.Name;
+            FirstName = A.FirstName;
+            LastName = A.LastName;
             Phone = A.Phone;
             Mail = A.Mail;
+        }
+        public override string ReturnType()
+        {
+            return "Admin";
         }
 
     }

@@ -10,6 +10,7 @@ namespace Medical.Models
     public class PatientModel
     {
         PatientsLogic bl = new PatientsLogic();
+        PrescriptionsLogic bl1= new PrescriptionsLogic();
         public PatientModel()
         {
 
@@ -38,6 +39,18 @@ namespace Medical.Models
         {
             bl.Removepatients(id);
 
+        }
+        public IEnumerable<Prescription> GetPrescriptionsById(int id)
+        {
+            return bl1.GetPrescriptionsById(id);
+        }
+        public void AddPrescription(string PatientId,string docfirst,string doclast,string begin,string finish)
+        {
+            int id = Convert.ToInt32(PatientId);
+            DateTime begindate = Convert.ToDateTime(begin);
+            DateTime finishdate = Convert.ToDateTime(finish);
+            Prescription prescription = new Prescription(id, docfirst, doclast,null, begindate, finishdate);
+            bl1.InsertPrescription(prescription);
         }
 
     }

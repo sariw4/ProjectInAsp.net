@@ -22,8 +22,9 @@ namespace Medical.Controllers
             DoctorsModel model = new DoctorsModel();
             try
             {
-                User user=  model.ReturnUser(collection["uname"], collection["psw"]);
-                return RedirectToAction("Catalog");
+                
+                RouteConfig.user=model.ReturnUser(collection["uname"], collection["psw"]);
+                return RedirectToAction("Index");
             }
             catch
             {

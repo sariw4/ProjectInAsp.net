@@ -1,0 +1,49 @@
+﻿@model BE.Patient
+@{
+    ViewBag.Title = "Prescription_";
+    Layout = "~/Views/LayoutPage.cshtml";
+}
+
+<div class="site-section pb-0">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-7 pr-md-7 mb-5">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="PatientID">Patient ID</label>
+                        <input name="PatientID" type="text" value="@ViewBag.id" class="form-control" id="PatientID" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="DoctorFirstName">Doctor First Name</label>
+                        <input name="DoctorFirstName" type="text" value="y" class="form-control" id="DoctorFirstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="DoctorLastName">Doctor Last Name</label>
+                        <input name="DoctorLastName" type="text" value="@RouteConfig.user.LastName" class="form-control" id="DoctorLastName">
+                    </div>
+                    <select>
+                    </select>
+                    <div class="form-group">
+                        <label for="BeginDate">Begin Date</label>
+                        <input name="BeginDate" type="date" class="form-control" id="BeginDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="FinishDate">Finish Date</label>
+                        <input name="FinishDate" type="date" class="form-control" id="FinishDate">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary py-3 px-5" value="Add Prescription">
+                    </div>
+                </form>
+            </div>
+
+
+
+        </div> <!-- .row -->
+
+    </div>
+</div>
+
+
+
+
