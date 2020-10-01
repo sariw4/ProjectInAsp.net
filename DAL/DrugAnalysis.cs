@@ -44,7 +44,7 @@ namespace DAL
             {
                 RxURL += drug + "+";
             }
-            RxURL.Remove(RxURL.Length - 1); //remove the last +
+            RxURL= RxURL.Substring(0, RxURL.Length - 1); //remove the last +
 
 
             //Use the REST API for list of drags rxcui
@@ -62,7 +62,9 @@ namespace DAL
                 // if string with JSON data is not empty, deserialize it to class
                 var results = JsonConvert.DeserializeObject<DrugsInteractionContent>(json_data);
                 //return the results
+                if (results.fullInteractionTypeGroup == null) return "No risks";
                 return results.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[0].description;
+               
             }
 
         }

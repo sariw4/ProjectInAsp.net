@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project1
+namespace BL
 {
-    class LicensedMedicineLogic
+    public class LicensedMedicineLogic
     {
         DAL.LicensedMedicines dal = new DAL.LicensedMedicines();
         public IEnumerable<LicensedMedicine> GetMedicineByNdc(string ndc)

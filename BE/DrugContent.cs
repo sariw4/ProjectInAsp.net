@@ -16,24 +16,25 @@ namespace BE
             public string id { get; set; }
             public string[] rxnormId { get; set; }
 
-            public Idgroup(string it, string id, string[] r)
-            {
-                idType = it;
-                this.id = id;
-                rxnormId = r;
-            }
+            //public Idgroup(string it, string id, string[] r)
+            //{
+            //    idType = it;
+            //    this.id = id;
+            //    rxnormId = r;
+            //}
 
-            public Idgroup(Idgroup other)
-            {
-                this.idType = other.idType;
-                this.id = other.id;
-                this.rxnormId = other.rxnormId;
-            }
+            //public Idgroup(Idgroup other)
+            //{
+            //    this.idType = other.idType;
+            //    this.id = other.id;
+            //    this.rxnormId = other.rxnormId;
+            //}
         }
 
-        public DrugContent(Idgroup ig)
-        {
-            idGroup = ig;
-        }
+        //public DrugContent() { }
+        //public DrugContent(Idgroup ig)
+        //{
+        //    idGroup = ig;
+        //}
     }
 }

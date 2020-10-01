@@ -12,6 +12,7 @@ namespace BE
 
         public Dictionary<string, double> Details { get; set; }
 
+        public ImageContent() { }
         public ImageContent(string ImagePath)
         {
             this.ImagePath = ImagePath;
