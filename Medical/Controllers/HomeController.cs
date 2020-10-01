@@ -61,17 +61,16 @@ namespace Medical.Controllers
             List<string> tags = bl.GetTags(path); //check images with Imagga
 
             //Pictures Service - Tal
-            if (tags.Exists(x => x == "prescription drug"))
+            if (tags.Intersect(bl.DrugsTags).Any())
             {
-                model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"]);
+                model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"], collection["NDC"]);
                 return RedirectToAction("Catalog");
             }
             else
             {
                 ViewBag.message = "The image that you added isn't a medicine!";
                 return View();
-            }
-                
+            }              
 
         }
       
@@ -89,7 +88,7 @@ namespace Medical.Controllers
             MedicineModel model = new MedicineModel();
             try
             {
-                model.Update(id, collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["image"]);
+                model.Update(id, collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["image"], collection["NDC"]);
                 return RedirectToAction("Catalog");
             }
             catch

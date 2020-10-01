@@ -19,14 +19,14 @@ namespace Medical.Models
         {
             return bl.GetMedicines();
         }
-        public void Update(int id, string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, string image)
+        public void Update(int id, string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, string image, string ndc)
         {
-            Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, image);
+            Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, image, ndc);
             bl.UpdateDrugs(medicine, id);
         }
-        public void Add(string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, string image)
+        public void Add(string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, string image, string ndc)
         {
-            Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, @"/images/" + image);
+            Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, @"/images/" + image, ndc);
             bl.AddDrugs(medicine);
         }
 
