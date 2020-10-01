@@ -42,7 +42,9 @@ namespace Medical.Controllers
             try
             {
                 model.AddPrescription(collection["PatientID"],collection["DoctorFirstName"], collection["DoctorLastName"], collection["BeginDate"], collection["FinishDate"]);
-                return RedirectToAction("Prescriptions");
+                ViewData["LastName"] = RouteConfig.user.LastName;
+                ViewBag["FirstName"] = RouteConfig.user.FirstName;
+                return RedirectToAction("Prescription_");
 
             }
             catch

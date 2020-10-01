@@ -38,6 +38,10 @@ namespace BE
             Email = email;
 
         }
+        public string ToString(string lastName)
+        {
+            return lastName + " ";
+        }
         public Doctor()
         {
 
