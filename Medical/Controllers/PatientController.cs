@@ -32,7 +32,8 @@ namespace Medical.Controllers
         }
         public ActionResult Prescription_(int id)
         {
-            ViewBag.id = id; 
+            TempData["ID"] = id;
+            ViewBag.id = id;
             return View();
         }
         [HttpPost]
@@ -41,8 +42,9 @@ namespace Medical.Controllers
             PatientModel model = new PatientModel();
             try
             {
-                model.AddPrescription(collection["PatientId"], collection["DoctorFirstName"], collection["DoctorLastName"], collection["BeginDate"], collection["FinishDate"]);
-                return RedirectToAction("Patients"); 
+                var x = TempData["ID"];
+                model.AddPrescription(x.ToString(),collection["DoctorFirstName"], collection["DoctorLastName"], collection["BeginDate"], collection["FinishDate"]);
+                return RedirectToAction("Patients");
 
             }
             catch
