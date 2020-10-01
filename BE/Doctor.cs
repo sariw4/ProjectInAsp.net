@@ -53,6 +53,10 @@ namespace BE
             Expertist = D.Expertist;
             Email = D.Email;
         }
+        public override string ReturnType()
+        {
+            return "Doctor";
+        }
 
     }
 }
