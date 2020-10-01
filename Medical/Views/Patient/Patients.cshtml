@@ -51,14 +51,26 @@
         @Html.DisplayFor(modelItem => item.Email)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        @if (RouteConfig.user.ReturnType() == "Admin")
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+        }|
+        @if (RouteConfig.user.ReturnType() == "Admin"||RouteConfig.user.ReturnType() == "Doctor")
+        {
+            @Html.ActionLink("Prescriptions", "Prescriptions", new { id = item.Id })
+        }|
+        @if (RouteConfig.user.ReturnType() == "Admin")
+        {
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        }
     </td>
 </tr>
     }
 
 </table>
 <div>
-    @Html.ActionLink("Add Patient", "AddPatient")
+    @if (RouteConfig.user.ReturnType() == "Admin")
+    {
+        @Html.ActionLink("Add Patient", "AddPatient")
+    }
 </div>
