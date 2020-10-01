@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Admin.cs" />
     <Compile Include="Doctor.cs" />
+    <Compile Include="LicensedMedicine.cs" />
     <Compile Include="Prescription.cs" />
     <Compile Include="User.cs" />
     <Compile Include="ImageContent.cs" />
