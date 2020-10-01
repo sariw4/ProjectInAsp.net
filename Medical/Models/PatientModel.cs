@@ -11,6 +11,8 @@ namespace Medical.Models
     {
         PatientsLogic bl = new PatientsLogic();
         PrescriptionsLogic bl1= new PrescriptionsLogic();
+        DrugAdminLogic  blm = new DrugAdminLogic();
+
         public PatientModel()
         {
 
@@ -44,12 +46,13 @@ namespace Medical.Models
         {
             return bl1.GetPrescriptionsById(id);
         }
-        public void AddPrescription(string PatientId,string docfirst,string doclast,string begin,string finish)
+        public void AddPrescription(string PatientId,string docfirst,string doclast,string medicine,string begin,string finish)
         {
             int patientID = Convert.ToInt32(PatientId);
             DateTime begindate = Convert.ToDateTime(begin);
             DateTime finishdate = Convert.ToDateTime(finish);
-            Prescription prescription = new Prescription(patientID, docfirst, doclast,null, begindate, finishdate);
+            Medicine newm = blm.GetMedicines().FirstOrDefault(m => m.CommercialName == medicine);
+            Prescription prescription = new Prescription(patientID, docfirst, doclast, newm, begindate, finishdate);
             bl1.InsertPrescription(prescription);
         }
 

@@ -38,11 +38,11 @@ namespace Medical.Controllers
             return View(Medicines);
         }
         // GET: Home/Details/5
-        public ActionResult Details(int id, FormCollection collection)
+        public ActionResult Details(int id)
         {
-            MedicineModel model = new MedicineModel();
-            var Medicines = model.GetMedicineChart(id);
-            return View();
+           MedicineModel model = new MedicineModel();
+           List<string> ListChart = model.GetMedicineChart(id);
+           return View(ListChart);
         }
 
         // GET: Home/Create

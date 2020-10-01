@@ -299,11 +299,6 @@
     <Content Include="Views\Patient\Patients.cshtml" />
     <Content Include="Views\Patient\AddPatient.cshtml" />
     <Content Include="Views\Patient\Edit.cshtml" />
-    <Content Include="Views\Medicines\Create.cshtml" />
-    <Content Include="Views\Medicines\Delete.cshtml" />
-    <Content Include="Views\Medicines\Details.cshtml" />
-    <Content Include="Views\Medicines\Edit.cshtml" />
-    <Content Include="Views\Medicines\Index.cshtml" />
     <Content Include="Views\Patient\Prescriptions.cshtml" />
     <Content Include="Views\Patient\Prescription_.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />

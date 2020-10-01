@@ -23,6 +23,10 @@ namespace BL
         {
             return dal.GetPrescriptionsById(id);
         }
+        public IEnumerable<Prescription> GetPrescriptionsByIdMed(int id)
+        {
+            return dal.GetPrescriptionsByIdMed(id);
+        }
 
     }
 }

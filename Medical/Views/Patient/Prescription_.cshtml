@@ -1,4 +1,4 @@
-﻿@model BE.Patient
+﻿@model IEnumerable<BE.Medicine>  
 @{
     ViewBag.Title = "Prescription_";
     Layout = "~/Views/LayoutPage.cshtml";
@@ -24,8 +24,15 @@
                         <label for="DoctorLastName">Doctor Last Name</label>
                         <input name="DoctorLastName" type="text" value="@ViewData["FirstName"]" class="form-control" id="DoctorLastName" >
                     </div>
-                    <select>
+                    <select name="Medicine"  id="Medicine">
+                       
+                     @foreach (var item in Model)
+                      {
+                         <option  >
+                             @(item.CommercialName)
+                         </option>
 
+                      }
                     </select>
                     <div class="form-group">
                         <label for="BeginDate">Begin Date</label>

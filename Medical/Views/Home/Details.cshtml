@@ -1,7 +1,7 @@
-﻿@model IEnumerable<string>
+﻿@model IEnumerable<string> 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/LayoutPage.cshtml";
+	ViewBag.Title = "Details";
+	Layout = "~/Views/LayoutPage.cshtml";
 }
 
 
@@ -9,41 +9,47 @@
 <html>
 
 <head>
-    <title>Line Chart</title>
-    <script src="~/js/Chart.min.js"></script>
-    <script src="~/js/utils.js"></script>
-    <style>
-        canvas {
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-    </style>
+	<title>Line Chart</title>
+	<script src="~/js/Chart.min.js"></script>
+	<script src="~/js/utils.js"></script>
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+	</style>
 
-    <meta name="NetsparkQuiltingResult" total-length="4007" removed="0" rules-found="w2339,w2713,w3914,w3082,w5163" />
+	<meta name="NetsparkQuiltingResult" total-length="4007" removed="0" rules-found="w2339,w2713,w3914,w3082,w5163" />
 </head>
 
 <body>
-    <div style="width:75%;">
-        <canvas id="canvas"></canvas>
-    </div>
-    <script>
+	<bl></bl>
+	<bl></bl>
+	<bl></bl>
+	<bl></bl>
+	<div style="width:75%;">
+		<canvas id="canvas"></canvas>
+	</div>
+
+	<script>
+
 		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		var config = {
 			type: 'line',
 			data: {
-				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+				labels: ['March', 'April', 'May', 'June', 'July', 'August', 'September'],
 				datasets: [{
 					label: 'Average annual medication',
 					size: 100,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
 					data: [
-						@(foreach item in Model)
+						@foreach (var item in Model)
 						{
-							@(item);
+							@(item+",");
                         }
-						
+
 					],
 					fill: false,
 				}]
@@ -140,7 +146,7 @@
 
 			window.myLine.update();
 		});
-    </script>
+	</script>
 </body>
 
 </html>

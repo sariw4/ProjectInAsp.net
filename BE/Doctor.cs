@@ -17,16 +17,16 @@ namespace BE
         [DisplayName("Phone Number")]
 
         public string Phone { get; set; }
-
+        public string Email { get; set; }
         [DisplayName("Licence Number ")]
 
         public string LicenceNumber { get; set; }
 
         public string Expertist { get; set; }
 
-        public string Email { get; set; }
+        
 
-        public Doctor(string userName, string password, string firstName, string lastName, string phone, string licenceNumber, string expertist, string email)
+        public Doctor(string userName, string password, string firstName, string lastName, string phone, string email, string licenceNumber, string expertist)
         {
             UserName = userName;
             Password = password;

@@ -68,24 +68,7 @@
                                     @Html.ActionLink("Home", "Index", "Home")
                                 }
                                 &nbsp; &nbsp;
-                                <li class="has-children">
-                                    <a href="services.html" class="nav-link">Services</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#" class="nav-link">General Surgery</a></li>
-                                        <li><a href="#" class="nav-link">Opthalmology Procedures</a></li>
-                                        <li><a href="#" class="nav-link">Outpatient Services</a></li>
-                                        <li><a href="#" class="nav-link">Radiology and Mammograms</a></li>
-                                        <li><a href="#" class="nav-link">Respiratory</a></li>
-                                        <li class="has-children">
-                                            <a href="#">More Links</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Menu One</a></li>
-                                                <li><a href="#">Menu Two</a></li>
-                                                <li><a href="#">Menu Three</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+
                                 @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
                                 {
                                     @Html.ActionLink("Patients", "Patients", "Patient")
@@ -94,9 +77,13 @@
                                 @if (RouteConfig.user.ReturnType() == "Admin")
                                 {
                                     @Html.ActionLink("Doctors", "Doctors", "Doctor")
-                                    
+                                }
+                                &nbsp; &nbsp;
+                                @if (RouteConfig.user.ReturnType() == "Admin")
+                                {
+
                                     @Html.ActionLink("Medicines Catalog", "Catalog", "Home")
-                                    
+
 
                                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                                 }
