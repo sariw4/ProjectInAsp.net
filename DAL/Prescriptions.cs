@@ -38,5 +38,25 @@ namespace DAL
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
+
+        public IEnumerable<Prescription> GetPrescriptionsById(int id)
+        {
+            try
+            {
+                List<Prescription> result = new List<Prescription>();
+                using (var ctx = new mediDB())
+                {
+                    foreach (var prescription in ctx.Prescriptions)
+                    {
+                        if(prescription.PatientId==id)
+                        {
+                            result.Add(prescription);
+                        }
+                    }
+                }
+                return result;
+            }
+            catch (Exception e) { throw new Exception(e.Message); }
+        }
     }
 }

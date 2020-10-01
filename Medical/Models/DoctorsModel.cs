@@ -21,11 +21,11 @@ namespace Medical.Models
         {
             return bl.GetDoctors();
         }
-        public void AddD(string firstname, string lastname, string phone, string email, string LicenceNumber, string Expertist)
+        public string AddD(string firstname, string lastname, string phone, string email, string LicenceNumber, string Expertist)
         {
             string Password = RandomPassword();
             Doctor doctor = new Doctor(lastname, Password, firstname, lastname, phone, email, LicenceNumber, Expertist);
-            bl.InsertDoctors(doctor);
+            return bl.InsertDoctors(doctor);
         }
         public void Update(int id, string firstname, string lastname, string phone, string email, string LicenceNumber, string Expertist)
         {

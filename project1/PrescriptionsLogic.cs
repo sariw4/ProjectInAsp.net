@@ -19,6 +19,10 @@ namespace project1
         {
             return dal.GetPrescriptions();
         }
+        public IEnumerable<Prescription> GetPrescriptionsById(int id)
+        {
+            return dal.GetPrescriptionsById(id);
+        }
 
     }
 }
