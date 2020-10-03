@@ -67,7 +67,7 @@ namespace DAL
                 {
                     foreach (var prescription in ctx.Prescriptions)
                     {
-                        if (prescription.Medicine.Id == id)
+                        if (prescription.medicine.Id == id)
                         {
                             result.Add(prescription);
                         }
