@@ -40,7 +40,8 @@ namespace Medical.Models
         {
             int Count = 0;
             List<string>CountList=new List<string>();
-            IEnumerable<Prescription> Prescriptions = bl1.GetPrescriptionsByIdMed(id);
+            Medicine med = bl.GetMedicines().FirstOrDefault(m => m.Id == id);
+            IEnumerable <Prescription> Prescriptions = bl1.GetPrescriptionsByNameMed(med.CommercialName);
             for (int i = 3; i < 10; i++)
             {
                 foreach (var prescription in Prescriptions)
@@ -51,6 +52,7 @@ namespace Medical.Models
                     }
                 }
                 CountList.Add(Count.ToString());
+                Count = 0;
             }
             return CountList;
         }

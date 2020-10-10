@@ -35,7 +35,7 @@ namespace Medical.Controllers
             TempData["ID"] = id;
             ViewBag.id = id;
             MedicineModel model = new MedicineModel();
-          return View(model.GetMedicines()) ;
+            return View(model.GetMedicines()) ;
         }
         [HttpPost]
         public ActionResult Prescription_(FormCollection collection)
