@@ -44,7 +44,7 @@ namespace Medical.Controllers
             try
             {
                 var x = TempData["ID"];
-                model.AddPrescription(x.ToString(),collection["DoctorFirstName"], collection["DoctorLastName"], collection["Medicine"], collection["BeginDate"], collection["FinishDate"]);
+                model.AddPrescription(x.ToString(), RouteConfig.user.FirstName, RouteConfig.user.LastName, collection["Medicine"], collection["BeginDate"], collection["FinishDate"]);
                 return RedirectToAction("Patients");
 
             }
