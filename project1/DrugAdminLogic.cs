@@ -10,9 +10,15 @@ namespace BL
     public class DrugAdminLogic
     {
         DAL.Drugs dal = new DAL.Drugs();
-        public void AddDrugs(Medicine m)
+        DAL.LicensedMedicines dal1 = new DAL.LicensedMedicines();
+        public string AddDrugs(Medicine m)
         {
-            dal.InsertDrugs(m);
+            if(dal1.GetMedicineByNdc(m.NDC)!=null)
+            {
+                dal.InsertDrugs(m);
+                return "התרופה נוספה בהצלחה";
+            }
+            return "התרופה לא חוקית";
         }
         public void RemoveDrugs(int id)
         {

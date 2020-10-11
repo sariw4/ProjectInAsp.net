@@ -9,11 +9,17 @@ namespace BE
 {
     public class Doctor : User
     {
+        //[DisplayName("First Name")]
+        //public string FirstName { get; set; }
+        //[DisplayName("Last Name")]
+        //public string LastName { get; set; }
+
         [DisplayName("Phone Number")]
+
         public string Phone { get; set; }
         public string Email { get; set; }
-
         [DisplayName("Licence Number ")]
+
         public string LicenceNumber { get; set; }
 
         public string Expertist { get; set; }
