@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 
-namespace project1
+namespace BL
 {
     public class DrugsLogic
     {

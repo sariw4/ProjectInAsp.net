@@ -10,6 +10,10 @@
 
 <table class="table">
     <tr>
+        <td height="100">
+        </td>
+    </tr>
+    <tr>
         <th>
             @Html.DisplayNameFor(model => model.PatientId)
         </th>
@@ -44,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.DoctorLastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Medicine.CommercialName)
+                @Html.DisplayFor(modelItem => item.Medicine)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BeginTime)
@@ -52,16 +56,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FinishTime)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
         </tr>
     }
 
 </table>
+@if (RouteConfig.user.ReturnType() == "Doctor")
+{
+    <div>
+        @Html.ActionLink("Add Prescription", "Prescription_", new { id = ViewBag.id })
+    </div>
 
-<div>
-    @Html.ActionLink("Add Prescription", "Prescription_", new { id =ViewBag.id})
-</div>
+}

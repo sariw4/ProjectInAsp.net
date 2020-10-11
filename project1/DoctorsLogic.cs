@@ -18,7 +18,7 @@ namespace BL
             SmtpClient smtp;
             //sending mail
             mail = new MailMessage();
-            string mailAdress = d.LicenceNumber;//באופן זמני עד ששרי ונמו תסדרנה את הבעיה
+            string mailAdress = d.Email;
             mail.To.Add(mailAdress);
             mail.From = new MailAddress("medical333@gmail.com");
             mail.Subject = " Welcome to medical website! ";

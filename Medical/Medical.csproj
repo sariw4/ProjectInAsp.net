@@ -137,6 +137,7 @@
     <Content Include="js\aos.js" />
     <Content Include="js\bootstrap-datepicker.min.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\Chart.min.js" />
     <Content Include="js\isotope.pkgd.min.js" />
     <Content Include="js\jquery-3.3.1.min.js" />
     <Content Include="js\jquery-migrate-3.0.1.min.js" />
@@ -153,6 +154,7 @@
     <Content Include="js\popper.min.js" />
     <Content Include="js\slick.min.js" />
     <Content Include="js\typed.js" />
+    <Content Include="js\utils.js" />
     <Content Include="login.html" />
     <Content Include="main.html" />
     <Content Include="VisualStudio.gitignore" />
@@ -297,13 +299,9 @@
     <Content Include="Views\Patient\Patients.cshtml" />
     <Content Include="Views\Patient\AddPatient.cshtml" />
     <Content Include="Views\Patient\Edit.cshtml" />
-    <Content Include="Views\Medicines\Create.cshtml" />
-    <Content Include="Views\Medicines\Delete.cshtml" />
-    <Content Include="Views\Medicines\Details.cshtml" />
-    <Content Include="Views\Medicines\Edit.cshtml" />
-    <Content Include="Views\Medicines\Index.cshtml" />
     <Content Include="Views\Patient\Prescriptions.cshtml" />
     <Content Include="Views\Patient\Prescription_.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

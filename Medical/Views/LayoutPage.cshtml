@@ -57,45 +57,47 @@
                         <div class="mb-0 site-logo"><a href="index.html" class="mb-0">Medically<span class="text-primary">.</span> </a></div>
                     </div>
 
-                    <div class="col-12 col-md-10 d-none d-xl-block">
-                        <nav class="site-navigation position-relative text-right" role="navigation">
+                    @if (RouteConfig.user != null)
+                    {
+                        <div class="col-12 col-md-10 d-none d-xl-block">
+                            <nav class="site-navigation position-relative text-right" role="navigation">
 
-                            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                                @Html.ActionLink("Home", "Index", "Home") &nbsp; &nbsp;
-                                <li class="has-children">
-                                    <a href="services.html" class="nav-link">Services</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#" class="nav-link">General Surgery</a></li>
-                                        <li><a href="#" class="nav-link">Opthalmology Procedures</a></li>
-                                        <li><a href="#" class="nav-link">Outpatient Services</a></li>
-                                        <li><a href="#" class="nav-link">Radiology and Mammograms</a></li>
-                                        <li><a href="#" class="nav-link">Respiratory</a></li>
-                                        <li class="has-children">
-                                            <a href="#">More Links</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Menu One</a></li>
-                                                <li><a href="#">Menu Two</a></li>
-                                                <li><a href="#">Menu Three</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                                    @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                                    {
+                                        @Html.ActionLink("Home", "Index", "Home")
+                                    }
+                                    &nbsp; &nbsp;
+                                    
+                                    @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                                    {
+                                        @Html.ActionLink("Patients", "Patients", "Patient")
+                                    }
+                                    &nbsp; &nbsp;
+                                    @if (RouteConfig.user.ReturnType() == "Admin")
+                                    {
+                                        @Html.ActionLink("Doctors", "Doctors", "Doctor")
+                                    }
 
-                                @Html.ActionLink("Patients", "Patients", "Patient") &nbsp; &nbsp;
-                                @Html.ActionLink("Doctors", "Doctors", "Doctor") &nbsp; &nbsp;
-                                @Html.ActionLink("Medicines Catalog", "Catalog", "Home") &nbsp; &nbsp;
+                                    &nbsp; &nbsp;
+                                    @if (RouteConfig.user.ReturnType() == "Admin")
+                                    {
 
-                                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                                        @Html.ActionLink("Medicines Catalog", "Catalog", "Home")
 
 
-                            </ul>
-                        </nav>
+                                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                                    }
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                    }
+
+                        <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
+
                     </div>
-
-
-                    <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
-
-                </div>
             </div>
 
         </header>

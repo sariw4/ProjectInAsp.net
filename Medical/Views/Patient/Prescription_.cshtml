@@ -1,8 +1,9 @@
-﻿@model BE.Patient
+﻿@model IEnumerable<BE.Medicine>  
 @{
     ViewBag.Title = "Prescription_";
     Layout = "~/Views/LayoutPage.cshtml";
 }
+
 
 <div class="site-section pb-0">
     <div class="container">
@@ -10,19 +11,32 @@
             <div class="col-md-7 pr-md-7 mb-5">
                 <form action="#" method="post">
                     <div class="form-group">
-                        <label for="PatientID">Patient ID</label>
-                        <input name="PatientID" type="text" value="@ViewBag.id" class="form-control" id="PatientID" disabled>
+                        <label for="PatientId">Patient ID</label>
+                       
+                        <input name="PatientId" type="text" value="@ViewBag.id" class="form-control" id="PatientId" disabled>
                     </div>
                     <div class="form-group">
                         <label for="DoctorFirstName">Doctor First Name</label>
-                        <input name="DoctorFirstName" type="text" value="y" class="form-control" id="DoctorFirstName">
+
+                        <input name="DoctorFirstName" type="text" value="@ViewData["FirstName"]" class="form-control" id="DoctorFirstName" >
                     </div>
                     <div class="form-group">
                         <label for="DoctorLastName">Doctor Last Name</label>
-                        <input name="DoctorLastName" type="text" value="@RouteConfig.user.LastName" class="form-control" id="DoctorLastName">
+                        <input name="DoctorLastName" type="text" value="@ViewData["FirstName"]" class="form-control" id="DoctorLastName" >
                     </div>
-                    <select>
-                    </select>
+                    <div>
+                        <label for="Medicine">Medicine</label>
+                        <select name="Medicine" id="Medicine">
+
+                            @foreach (var item in Model)
+                            {
+                                <option>
+                                    @(item.CommercialName)
+                                </option>
+
+                            }
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="BeginDate">Begin Date</label>
                         <input name="BeginDate" type="date" class="form-control" id="BeginDate">
@@ -36,8 +50,6 @@
                     </div>
                 </form>
             </div>
-
-
 
         </div> <!-- .row -->
 

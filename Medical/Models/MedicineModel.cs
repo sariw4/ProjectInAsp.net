@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using BE;
 using BL;
@@ -10,6 +11,7 @@ namespace Medical.Models
     public class MedicineModel
     {
         DrugAdminLogic bl = new DrugAdminLogic();
+        PrescriptionsLogic bl1 =new PrescriptionsLogic();
 
         public MedicineModel()
         {
@@ -33,6 +35,26 @@ namespace Medical.Models
         public void delete(int id)
         {
             bl.RemoveDrugs(id);
+        }
+        public List<string> GetMedicineChart(int id)
+        {
+            int Count = 0;
+            List<string>CountList=new List<string>();
+            Medicine med = bl.GetMedicines().FirstOrDefault(m => m.Id == id);
+            IEnumerable <Prescription> Prescriptions = bl1.GetPrescriptionsByNameMed(med.CommercialName);
+            for (int i = 3; i < 10; i++)
+            {
+                foreach (var prescription in Prescriptions)
+                {
+                    if (prescription.BeginTime.Month == i)
+                    {
+                        Count++;
+                    }
+                }
+                CountList.Add(Count.ToString());
+                Count = 0;
+            }
+            return CountList;
         }
     }
 }
