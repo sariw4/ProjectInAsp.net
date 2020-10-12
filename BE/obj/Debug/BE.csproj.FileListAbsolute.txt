@@ -9,12 +9,6 @@ C:\Users\Avital\Downloads\project\BE\bin\Debug\BE.pdb
 C:\Users\Avital\Downloads\project\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
 C:\Users\Avital\Downloads\project\BE\obj\Debug\BE.dll
 C:\Users\Avital\Downloads\project\BE\obj\Debug\BE.pdb
-C:\Users\user\Source\Repos\Avital-coder\CloudComputing\BE\bin\Debug\BE.dll
-C:\Users\user\Source\Repos\Avital-coder\CloudComputing\BE\bin\Debug\BE.pdb
-C:\Users\user\Source\Repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
-C:\Users\user\Source\Repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.dll
-C:\Users\user\Source\Repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.pdb
-C:\Users\user\source\repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.csprojAssemblyReference.cache
 C:\Users\User\Desktop\project\BE\bin\Debug\BE.dll
 C:\Users\User\Desktop\project\BE\bin\Debug\BE.pdb
 C:\Users\User\Desktop\project\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
@@ -38,3 +32,9 @@ C:\Users\Avital\source\repos\CloudComputing\BE\obj\Debug\BE.csproj.CoreCompileIn
 C:\Users\Avital\source\repos\CloudComputing\BE\obj\Debug\BE.dll
 C:\Users\Avital\source\repos\CloudComputing\BE\obj\Debug\BE.pdb
 C:\Users\Avital\source\repos\CloudComputing\BE\obj\Debug\BE.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Avital-coder\CloudComputing\BE\bin\Debug\BE.dll
+C:\Users\user\source\repos\Avital-coder\CloudComputing\BE\bin\Debug\BE.pdb
+C:\Users\user\source\repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.dll
+C:\Users\user\source\repos\Avital-coder\CloudComputing\BE\obj\Debug\BE.pdb

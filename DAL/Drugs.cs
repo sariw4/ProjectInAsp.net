@@ -20,7 +20,7 @@ namespace DAL
 
                     //Google Drive API
                     GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
-                    gd.addFile(medicine.Id.ToString());
+                    //gd.addFile(medicine.Id.ToString());
 
                 }
             }
@@ -39,13 +39,13 @@ namespace DAL
 
                     //Google Drive API
                     GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
-                    gd.deleteFile(id.ToString());
+                    //gd.deleteFile(id.ToString());
 
                 }
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
-        /*
+        
         public void UpdateDrugs(Medicine medicine, int id)
         {
             try
@@ -63,14 +63,14 @@ namespace DAL
 
                     //Google Drive API
                     GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
-                    gd.deleteAllFiles(medicineId.ToString());
-                    gd.UplaodFileOnDriveInFolder(file, medicineId.ToString(), "cloudComputing");
+                    //gd.deleteAllFiles(medicineId.ToString());
+                    //gd.UplaodFileOnDriveInFolder(file, medicineId.ToString(), "cloudComputing");
 
                 }
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
-        */
+        
         public IEnumerable<Medicine> GetMedicines()
         {
             try
