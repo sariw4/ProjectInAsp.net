@@ -32,7 +32,7 @@ namespace DAL
             UserCredential credential;
             //Root Folder of project
             var CSPath = System.Web.Hosting.HostingEnvironment.MapPath(" ~/");
-            using (var stream = new FileStream(@" C:\Users\user\source\repos\Avital-coder\CloudComputing\DAL\bin\Debug\credentials.json",
+            using (var stream = new FileStream(@" C:\Users\user\OneDrive\Desktop\CloudComputing\DAL\bin\Debug\credentials.json",
                 FileMode.Open, FileAccess.Read))
             {
                 String FolderPath = System.Web.Hosting.HostingEnvironment.MapPath("~/ ");
