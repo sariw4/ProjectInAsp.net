@@ -84,7 +84,7 @@ namespace Medical.Controllers
           
             if (tags.Intersect(bl.DrugsTags).Any())
             {
-                model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"], collection["NDC"]);
+                ViewBag.message1 = model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"], collection["NDC"]);
                 return RedirectToAction("Catalog");
             }
             else
