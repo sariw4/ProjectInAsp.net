@@ -22,7 +22,7 @@ namespace BL
             mail.To.Add(mailAdress);
             mail.From = new MailAddress("medical333@gmail.com");
             mail.Subject = " Welcome to medical website! ";
-            mail.Body ="Hi "+ d.FirstName+ " Welcome to medical website!" + "<br/>" + "<br/>" + "Here is your login information" + "<br/>" + "<br/>" + "User Name: " +d.UserName + 
+            mail.Body ="Hi "+ d.FirstName+ ", Welcome to medical website!" + "<br/>" + "<br/>" + "Here is your login information" + "<br/>" + "<br/>" + "User Name: " +d.UserName + 
                 "<br/>" +"Password: "+ d.Password;
             mail.IsBodyHtml = true;
             smtp = new SmtpClient();

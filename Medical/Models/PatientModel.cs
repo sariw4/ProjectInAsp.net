@@ -51,8 +51,8 @@ namespace Medical.Models
             int patientID = Convert.ToInt32(PatientId);
             DateTime begindate = Convert.ToDateTime(begin);
             DateTime finishdate = Convert.ToDateTime(finish);
-            Medicine newm = blm.GetMedicines().FirstOrDefault(m => m.CommercialName == medicine);
-            Prescription prescription = new Prescription(patientID, docfirst, doclast, newm, begindate, finishdate);
+            //Medicine newm = new Medicine(blm.GetMedicines().FirstOrDefault(m => m.CommercialName == medicine));
+            Prescription prescription = new Prescription(patientID, docfirst, doclast, medicine, begindate, finishdate);
             bl1.InsertPrescription(prescription);
         }
 

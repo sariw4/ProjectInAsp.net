@@ -111,7 +111,14 @@
                 <div class="row">
                     <div class="col-lg-6 align-self-center">
                         <h1 class="heading mb-5">Welcome To Our Services</h1>
-                        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="btn btn-primary">Login</button>
+                        @if (RouteConfig.user == null)
+                        {
+                            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="btn btn-primary">Login</button>
+                        }
+                        @if (RouteConfig.user != null)
+                        {
+                           <button type="button" style="width:auto;" onclick="location.href='@Url.Action("Logout", "Home")'" class="btn btn-primary">Logout</button>
+                        }
                     </div>
                 </div>
             </div>

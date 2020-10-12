@@ -22,7 +22,6 @@ namespace Medical.Controllers
             DoctorsModel model = new DoctorsModel();
             try
             {
-                
                 RouteConfig.user=model.ReturnUser(collection["uname"], collection["psw"]);
                 return RedirectToAction("Index");
             }
@@ -30,6 +29,11 @@ namespace Medical.Controllers
             {
                 return View();
             }
+        }
+        public ActionResult Logout()
+        {
+            RouteConfig.user = null;
+            return RedirectToAction("Index");
         }
         public ActionResult Catalog()
         {
