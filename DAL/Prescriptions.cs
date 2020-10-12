@@ -58,7 +58,7 @@ namespace DAL
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
-        public IEnumerable<Prescription> GetPrescriptionsByIdMed(int id)
+        public IEnumerable<Prescription> GetPrescriptionsByNameMed(string medicine)
         {
             try
             {
@@ -67,7 +67,7 @@ namespace DAL
                 {
                     foreach (var prescription in ctx.Prescriptions)
                     {
-                        if (prescription.medicine.Id == id)
+                        if (prescription.Medicine == medicine)
                         {
                             result.Add(prescription);
                         }

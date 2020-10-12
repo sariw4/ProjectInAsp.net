@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -9,10 +10,14 @@ namespace BE
 {
   public  class User
     {       
-        //1
+        
         public int Id { get; set; }
         public string UserName { get; set; }
+
+        [DisplayName("First Name")]
         public string FirstName { get; set; }
+
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
         public string Password { get; set; }
         public User() { }

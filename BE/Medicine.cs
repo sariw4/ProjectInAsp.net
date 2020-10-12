@@ -48,6 +48,17 @@ namespace BE
         {
 
         }
+        public Medicine(Medicine M)
+        {
+            Id = M.Id;
+            CommercialName= M.CommercialName;
+            GenericName = M.GenericName;
+            Producer = M.Producer;
+            ActiveIngredients = M.ActiveIngredients;
+            DoseCharacteristic = M.DoseCharacteristic;
+            ImageUrl = M.ImageUrl;
+            NDC = M.NDC;
+        }
     }
 }
 

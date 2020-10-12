@@ -9,10 +9,10 @@ namespace BE
 {
     public class Doctor : User
     {
-        [DisplayName("First Name")]
-        public string FirstName { get; set; }
-        [DisplayName("Last Name")]
-        public string LastName { get; set; }
+        //[DisplayName("First Name")]
+        //public string FirstName { get; set; }
+        //[DisplayName("Last Name")]
+        //public string LastName { get; set; }
 
         [DisplayName("Phone Number")]
 
