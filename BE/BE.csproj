@@ -46,6 +46,7 @@
     <Compile Include="Doctor.cs" />
     <Compile Include="DrugContent.cs" />
     <Compile Include="DrugsInteractionContent.cs" />
+    <Compile Include="GoogleDriveFile.cs" />
     <Compile Include="LicensedMedicine.cs" />
     <Compile Include="Prescription.cs" />
     <Compile Include="User.cs" />
