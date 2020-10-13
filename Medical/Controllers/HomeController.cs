@@ -69,12 +69,12 @@ namespace Medical.Controllers
                 ViewBag.message2 = "There is no such a medicine NDC!";
                 return View();
             }
-            //Finish NDC
 
-            //DrugsLogic DL = new DrugsLogic();
-            //string[] n = new string[2] { "0259-2102", "0254-3021" };
-            //ViewBag.message2 = DL.GetDrugsResults(n);
-            //return View();
+            //Drugs Service
+            DrugsLogic DL = new DrugsLogic();
+            string[] n = new string[2] { "0259-2102", "0254-3021" };
+            ViewBag.message2 = DL.GetDrugsResults(n);
+            
 
             //Images Service
             var ImgPath = collection["ImagePath"].ToString();
@@ -82,8 +82,8 @@ namespace Medical.Controllers
             ImageTagsLogic bl = new ImageTagsLogic();
             MedicineModel model = new MedicineModel();
             List<string> tags = bl.GetTags(path); //check images with Imagga
-            //End of Service
 
+            //Add
             if (tags.Intersect(bl.DrugsTags).Any())
             {
                 ViewBag.message1 = model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"], collection["NDC"]);
@@ -128,20 +128,5 @@ namespace Medical.Controllers
             return RedirectToAction("Catalog");
         }
 
-        // POST: Home/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
