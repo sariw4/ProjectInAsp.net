@@ -88,8 +88,8 @@ namespace Medical.Controllers
         }
         public ActionResult AddImage(int id, HttpPostedFileBase file)
         {
-            MedicineModel model = new MedicineModel();
             //Images Service
+            MedicineModel model = new MedicineModel();            
             var ImgPath = file.FileName;
             var path = Server.MapPath(Url.Content($"~/images/{ImgPath}"));
             ImageTagsLogic bl = new ImageTagsLogic();
