@@ -1,7 +1,7 @@
 ﻿using BE;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Download;
-using Google.Apis.Drive.v2;
+//using Google.Apis.Drive.v2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
-using DriveService = Google.Apis.Drive.v3.DriveService;
+//using DriveService = Google.Apis.Drive.v3.DriveService;
 
 namespace DAL
 {
@@ -32,7 +32,7 @@ namespace DAL
             UserCredential credential;
             //Root Folder of project
             var CSPath = System.Web.Hosting.HostingEnvironment.MapPath(" ~/");
-            using (var stream = new FileStream(@" C:\Users\user\source\repos\Avital-coder\CloudComputing\DAL\bin\Debug\credentials.json",
+            using (var stream = new FileStream(@" C:\Users\User\Desktop\project\DAL\bin\Debug\credentials.json",
                 FileMode.Open, FileAccess.Read))
             {
                 String FolderPath = System.Web.Hosting.HostingEnvironment.MapPath("~/ ");
@@ -53,6 +53,38 @@ namespace DAL
             });
             return service;
         }
+        #region DELETE
+        /**
+          * Permanently delete a file, skipping the trash.
+          *
+          * @param fileId ID of the file to delete.
+          */
+        public void deleteFile(string fileName)
+        {
+            string fileId = (from file in this.GetDriveFiles()
+                             where file.Name == (fileName + Path.GetExtension(file.Name))
+                             select file.Id).FirstOrDefault();
+            if (fileId != null)
+            {
+                //create service
+                DriveService service = GetService();
+                FilesResource.DeleteRequest DeleteRequest = service.Files.Delete(fileId);
+                DeleteRequest.Execute();
+            }
+        }
+        public void deleteAllFiles(string filesName)
+        {
+            var fileIds = (from file in this.GetDriveFiles()
+                           where file.Name == (filesName + Path.GetExtension(file.Name))
+                           select file.Id).ToList();
+            DriveService service = GetService();
+            foreach (var fileId in fileIds)
+            {
+                FilesResource.DeleteRequest DeleteRequest = service.Files.Delete(fileId);
+                DeleteRequest.Execute();
+            }
+        }
+        #endregion
 
         /// <summary>
         /// file Upload to the Google Drive root folder
@@ -345,27 +377,7 @@ namespace DAL
 
         }
 
-        //Delete file from the Google drive    
-        public void DeleteFile(GoogleDriveFile files)
-        {
-            DriveService service = GetService();
-            try
-            {
-                // Initial validation.    
-                if (service == null)
-                    throw new ArgumentNullException("service");
-
-                if (files == null)
-                    throw new ArgumentNullException(files.Id);
-
-                // Make the request.    
-                service.Files.Delete(files.Id).Execute();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Request Files.Delete failed.", ex);
-            }
-        }
+        
         /*
         public List<GoogleDriveFile> GetContainsInFolder(String folderId)
         {

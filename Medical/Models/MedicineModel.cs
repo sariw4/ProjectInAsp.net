@@ -26,10 +26,12 @@ namespace Medical.Models
             Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, image, ndc);
             bl.UpdateDrugs(medicine, id);
         }
-        public void Add(string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, string image, string ndc)
+        public string Add(string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, string image, string ndc)
         {
             Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, @"/images/" + image, ndc);
-            bl.AddDrugs(medicine);
+            
+            string message=bl.AddDrugs(medicine);
+            return message;
         }
 
         public void delete(int id)

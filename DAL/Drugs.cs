@@ -63,7 +63,7 @@ namespace DAL
 
                     //Google Drive API
                     GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
-                   // gd.deleteAllFiles(medicineId.ToString());
+                    //gd.deleteAllFiles(medicineId.ToString());
                     //gd.UplaodFileOnDriveInFolder(file, medicineId.ToString(), "cloudComputing");
 
                 }
