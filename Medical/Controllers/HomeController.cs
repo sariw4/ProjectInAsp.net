@@ -76,7 +76,7 @@ namespace Medical.Controllers
             //return View();
 
             //Images Service
-            var ImgPath = collection["ImagePath"].ToString();
+            var ImgPath = file.FileName;
             var path = Server.MapPath(Url.Content($"~/images/{ImgPath}"));
             ImageTagsLogic bl = new ImageTagsLogic();
             MedicineModel model = new MedicineModel();
@@ -84,7 +84,7 @@ namespace Medical.Controllers
           
             if (tags.Intersect(bl.DrugsTags).Any())
             {
-                ViewBag.message1 = model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"], collection["NDC"]);
+                ViewBag.message1 = model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], file, collection["NDC"]);
                 return RedirectToAction("Catalog");
             }
             else
@@ -94,7 +94,12 @@ namespace Medical.Controllers
             }              
 
         }
-      
+        public ActionResult AddImage(HttpPostedFileBase file,int img)
+        {
+            MedicineModel model = new MedicineModel();
+            model.AddImage(file, img);
+            return RedirectToAction("Catalog");
+        }
         public ActionResult Edit(int id)
         {
             MedicineModel model = new MedicineModel();
@@ -126,20 +131,6 @@ namespace Medical.Controllers
             return RedirectToAction("Catalog");
         }
 
-        // POST: Home/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
     }
 }

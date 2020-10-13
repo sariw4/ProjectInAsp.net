@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace BL
 {
@@ -11,11 +12,11 @@ namespace BL
     {
         DAL.Drugs dal = new DAL.Drugs();
         DAL.LicensedMedicines dal1 = new DAL.LicensedMedicines();
-        public string AddDrugs(Medicine m)
+        public string AddDrugs(Medicine m, HttpPostedFileBase file)
         {
             if(dal1.GetMedicineByNdc(m.NDC)!=null)
             {
-                dal.InsertDrugs(m);
+                dal.InsertDrugs(m,file);
                 return "התרופה נוספה בהצלחה";
             }
             return "התרופה לא חוקית";

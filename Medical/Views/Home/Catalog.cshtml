@@ -58,13 +58,32 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id}) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="btn btn-primary">Add Image</button>
+                <input type="hidden" id="img" name="img" value="@item.Id"/>
             </td>
         </tr>
     }
 
 </table>
-<div>
-    @Html.ActionLink("Add Medicine", "Create")
-</div>
+<form class="modal-content animate" action="~/Controllers/Home/AddImage">
+    <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div>
+                <label for="name">Select Image</label>
+                <input name="file" type="file" class="form-control" id="file" required>
+                <label for="name" style=" color:red ">@ViewBag.message </label>
+            </div>
+
+            <div>
+                <input type="submit" class="btn btn-primary py-3 px-5" value="Add Image">
+            </div>
+        }
+    </div>
+</form>
+        <div>
+            @Html.ActionLink("Add Medicine", "Create")
+        </div>

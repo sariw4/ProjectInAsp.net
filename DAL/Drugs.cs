@@ -1,15 +1,17 @@
 ﻿using BE;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace DAL
 {
     public class Drugs
     {
-        public void InsertDrugs(Medicine m)
+        public void InsertDrugs(Medicine m, HttpPostedFileBase file)
         {
             try
             {
@@ -18,9 +20,10 @@ namespace DAL
                     ctx.Drugs.Add(m);
                     ctx.SaveChanges();
 
+                    //HttpPostedFileBase file=File.WriteAllBytes("image", Convert.FromBase64String(m.ImageUrl));
                     //Google Drive API
                     GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
-                    //gd.addFile(medicine.Id.ToString());
+                    gd.UplaodFileOnDriveInFolder(file,file.FileName,"medicines");
 
                 }
             }
