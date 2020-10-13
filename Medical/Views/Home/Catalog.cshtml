@@ -64,7 +64,7 @@
                 <form class="modal-content animate" action="~/Controllers/Home/AddImage">
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                        @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        @using (Html.BeginForm("AddImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
                             <div>
                                 <label for="name">Select Image</label>
