@@ -11,6 +11,7 @@ namespace BL
     {
 
         DAL.Prescriptions dal = new DAL.Prescriptions();
+        DAL.Drugs DrugsDal = new DAL.Drugs();
         public void InsertPrescription(Prescription p)
         {
             dal.InsertPrescription(p);
@@ -22,6 +23,21 @@ namespace BL
         public IEnumerable<Prescription> GetPrescriptionsById(int id)
         {
             return dal.GetPrescriptionsById(id);
+        }
+        public IEnumerable<string> GetNDCById(int id)
+        {
+            IEnumerable<Prescription> prescriptions= dal.GetPrescriptionsById(id);
+            List<string> NDC = new List<string>();
+            foreach(var item in prescriptions)
+            {
+                if(item.PatientId==id)
+                {
+                    Medicine m = DrugsDal.GetMedicineByName(item.Medicine);
+                    NDC.Add(m.NDC);
+                }
+            }
+            return NDC;
+
         }
         public IEnumerable<Prescription> GetPrescriptionsByNameMed(string med)
         {

@@ -87,5 +87,24 @@ namespace DAL
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
+
+        public Medicine GetMedicineByName(string name)
+        {
+            try
+            {
+                using (var ctx = new mediDB())
+                {
+                    foreach (var drug in ctx.Drugs)
+                    {
+                        if(drug.CommercialName==name)
+                        {
+                            return drug;
+                        }
+                    }
+                }
+                return null;
+            }
+            catch (Exception e) { throw new Exception(e.Message); }
+        }
     }
 }
