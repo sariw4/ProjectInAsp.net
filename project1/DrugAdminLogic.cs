@@ -12,11 +12,11 @@ namespace BL
     {
         DAL.Drugs dal = new DAL.Drugs();
         DAL.LicensedMedicines dal1 = new DAL.LicensedMedicines();
-        public string AddDrugs(Medicine m, HttpPostedFileBase file)
+        public string AddDrugs(Medicine m)
         {
             if(dal1.GetMedicineByNdc(m.NDC)!=null)
             {
-                dal.InsertDrugs(m,file);
+                dal.InsertDrugs(m);
                 return "התרופה נוספה בהצלחה";
             }
             return "התרופה לא חוקית";
@@ -32,6 +32,10 @@ namespace BL
         public IEnumerable<Medicine> GetMedicines()
         {
             return dal.GetMedicines();
+        }
+        public void AddImgDrug(int id, HttpPostedFileBase file)
+        {
+            dal.AddImageDrugs(id,file);
         }
 
         //public bool AddDrug(int id, string commercialName, string genericName, string producer,
