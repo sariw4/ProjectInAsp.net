@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -26,12 +27,17 @@ namespace Medical.Models
             Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, image, ndc);
             bl.UpdateDrugs(medicine, id);
         }
-        public string Add(string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, string image, string ndc)
+        public string Add(string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, string ndc)
         {
-            Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, @"/images/" + image, ndc);
+            
+            Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, null, ndc);
             
             string message=bl.AddDrugs(medicine);
             return message;
+        }
+        public void AddImage(HttpPostedFileBase file, int id)
+        {
+            bl.AddImgDrug(id, file);
         }
 
         public void delete(int id)

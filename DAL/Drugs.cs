@@ -1,9 +1,11 @@
 ﻿using BE;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace DAL
 {
@@ -18,9 +20,24 @@ namespace DAL
                     ctx.Drugs.Add(m);
                     ctx.SaveChanges();
 
+                    
+                }
+            }
+            catch (Exception e) { throw new Exception(e.Message); }
+        }
+        public void AddImageDrugs(int id, HttpPostedFileBase file)
+        {
+            try
+            {
+                using (var ctx = new mediDB())
+                {
+                    Medicine tmp = ctx.Drugs.First(m => m.Id == id);
+                    tmp.ImageUrl = file.FileName;
+                    ctx.SaveChanges();
+
                     //Google Drive API
                     GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
-                    //gd.addFile(medicine.Id.ToString());
+                    gd.UplaodFileOnDriveInFolder(file, file.FileName, "MedicinesImages");
 
                 }
             }
@@ -84,6 +101,25 @@ namespace DAL
                     }
                 }
                 return result;
+            }
+            catch (Exception e) { throw new Exception(e.Message); }
+        }
+
+        public Medicine GetMedicineByName(string name)
+        {
+            try
+            {
+                using (var ctx = new mediDB())
+                {
+                    foreach (var drug in ctx.Drugs)
+                    {
+                        if(drug.CommercialName==name)
+                        {
+                            return drug;
+                        }
+                    }
+                }
+                return null;
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }

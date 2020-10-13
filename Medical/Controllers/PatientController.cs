@@ -41,12 +41,18 @@ namespace Medical.Controllers
         public ActionResult Prescription_(FormCollection collection)
         {
             PatientModel model = new PatientModel();
-            try
-            {
-                var x = TempData["ID"];
-                model.AddPrescription(x.ToString(), RouteConfig.user.FirstName, RouteConfig.user.LastName, collection["Medicine"], collection["BeginDate"], collection["FinishDate"]);
-                return RedirectToAction("Patients");
 
+            //Drugs Service
+            var id = TempData["ID"];
+            DrugsLogic DL = new DrugsLogic();
+            PrescriptionsLogic BL = new PrescriptionsLogic();
+            var NDC_List = BL.GetNDCById(id.ToString());
+            ViewBag.drugsService = DL.GetDrugsResults(NDC_List.ToArray());
+
+            try
+            {               
+                model.AddPrescription(id.ToString(), RouteConfig.user.FirstName, RouteConfig.user.LastName, collection["Medicine"], collection["BeginDate"], collection["FinishDate"]);
+                return RedirectToAction("Patients");               
             }
             catch
             {

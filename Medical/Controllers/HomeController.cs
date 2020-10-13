@@ -61,6 +61,7 @@ namespace Medical.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+
             //Check NDC
             var ndc = collection["NDC"];
             LicensedMedicineLogic NDCs = new LicensedMedicineLogic();
@@ -69,34 +70,37 @@ namespace Medical.Controllers
                 ViewBag.message2 = "There is no such a medicine NDC!";
                 return View();
             }
-            //Finish NDC
+            
+            MedicineModel model = new MedicineModel();
+            ViewBag.message1 = model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["NDC"]);
+            return RedirectToAction("Catalog");
+        
+                         
 
-            //DrugsLogic DL = new DrugsLogic();
-            //string[] n = new string[2] { "0259-2102", "0254-3021" };
-            //ViewBag.message2 = DL.GetDrugsResults(n);
-            //return View();
-
+        }
+        public ActionResult AddImage(int id, HttpPostedFileBase file)
+        {
             //Images Service
-            var ImgPath = collection["ImagePath"].ToString();
+            MedicineModel model = new MedicineModel();            
+            var ImgPath = file.FileName;
             var path = Server.MapPath(Url.Content($"~/images/{ImgPath}"));
             ImageTagsLogic bl = new ImageTagsLogic();
-            MedicineModel model = new MedicineModel();
             List<string> tags = bl.GetTags(path); //check images with Imagga
-            //End of Service
 
+            //Add
             if (tags.Intersect(bl.DrugsTags).Any())
             {
-                ViewBag.message1 = model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"], collection["NDC"]);
+                model.AddImage(file, id);
                 return RedirectToAction("Catalog");
             }
             else
             {
                 ViewBag.message = "The image that you added isn't a medicine!";
                 return View();
-            }              
+            }
 
         }
-      
+
         public ActionResult Edit(int id)
         {
             MedicineModel model = new MedicineModel();
@@ -128,20 +132,5 @@ namespace Medical.Controllers
             return RedirectToAction("Catalog");
         }
 
-        // POST: Home/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

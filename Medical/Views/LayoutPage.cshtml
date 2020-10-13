@@ -51,7 +51,7 @@
         <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
             <div class="container">
-                <div class="row align-items-center">
+                <div class="row align-items-lg-start">
 
                     <div class="col-6 col-xl-2">
                         <div class="mb-0 site-logo"><a href="index.html" class="mb-0">Medically<span class="text-primary">.</span> </a></div>
@@ -59,40 +59,48 @@
 
                     @if (RouteConfig.user != null)
                     {
-                        <div class="col-12 col-md-10 d-none d-xl-block">
-                            <nav class="site-navigation position-relative text-right" role="navigation">
+                    <nav class="site-navigation position-relative text-right">
+                        <label class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                            Hello @RouteConfig.user.FirstName |
+                            @if (RouteConfig.user != null)
+                            {
+                                @Html.ActionLink("Logout", "Logout", "Home")
+                            }
+                        </label>
 
-                                <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                                    @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
-                                    {
-                                        @Html.ActionLink("Home", "Index", "Home")
-                                    }
-                                    &nbsp; &nbsp;
-                                    
-                                    @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
-                                    {
-                                        @Html.ActionLink("Patients", "Patients", "Patient")
-                                    }
-                                    &nbsp; &nbsp;
-                                    @if (RouteConfig.user.ReturnType() == "Admin")
-                                    {
-                                        @Html.ActionLink("Doctors", "Doctors", "Doctor")
-                                    }
+                        <nav class="site-navigation position-relative text-left" role="navigation">
+                            <ul class="row align-items-lg-start">
+                                
+                                @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                                {
+                                    @Html.ActionLink("Home", "Index", "Home")
+                                }
+                                &nbsp; &nbsp;
 
-                                    &nbsp; &nbsp;
-                                    @if (RouteConfig.user.ReturnType() == "Admin")
-                                    {
+                                @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                                {
+                                    @Html.ActionLink("Patients", "Patients", "Patient")
+                                }
+                                &nbsp; &nbsp;
+                                @if (RouteConfig.user.ReturnType() == "Admin")
+                                {
+                                    @Html.ActionLink("Doctors", "Doctors", "Doctor")
+                                }
 
-                                        @Html.ActionLink("Medicines Catalog", "Catalog", "Home")
+                                &nbsp; &nbsp;
+                                @if (RouteConfig.user.ReturnType() == "Admin")
+                                {
 
-
-                                        <li><a href="contact.html" class="nav-link">Contact</a></li>
-                                    }
+                                    @Html.ActionLink("Medicines Catalog", "Catalog", "Home")
 
 
-                                </ul>
-                            </nav>
-                        </div>
+                                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                                }
+
+
+                            </ul>
+                        </nav>
+                    </nav>
                     }
 
                         <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
@@ -107,7 +115,7 @@
         <footer class="site-footer bg-primary">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3">
+                    @*<div class="col-lg-3">
                         <h2 class="footer-heading mb-4">Departments</h2>
                         <ul class="list-unstyled">
                             <li><a href="#">X-Ray</a></li>
@@ -116,7 +124,7 @@
                             <li><a href="#">Nose Treatment</a></li>
                             <li><a href="#">Surgery</a></li>
                         </ul>
-                    </div>
+                    </div>*@
 
                     <div class="col-lg-3">
                         <h2 class="footer-heading mb-4">Social</h2>
@@ -128,7 +136,7 @@
                         </div>
 
 
-                        <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+                        @*<h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
                         <form action="#" method="post" id="footer-subscribe" class="footer-subscribe">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control  bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
@@ -136,7 +144,7 @@
                                     <button class="btn btn-white text-black" type="button" id="button-addon2">Send</button>
                                 </div>
                             </div>
-                        </form>
+                        </form>*@
                     </div>
                 </div>
                 <div class="row pt-5 mt-5 text-center">
