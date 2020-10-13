@@ -70,21 +70,25 @@ namespace Medical.Controllers
                 return View();
             }
 
-            //DrugsLogic DL = new DrugsLogic();
-            //string[] n = new string[2] { "0259-2102", "0254-3021" };
-            //ViewBag.message2 = DL.GetDrugsResults(n);
-            //return View();
+            //Drugs Service
+            var id = collection["NDC"];
+            DrugsLogic DL = new DrugsLogic();
+            PrescriptionsLogic BL = new PrescriptionsLogic();
+            var NDC_List = BL.GetNDCById(id);
+            ViewBag.drugsService = DL.GetDrugsResults(NDC_List.ToArray());
+            
 
             //Images Service
-            var ImgPath = file.FileName;
+            var ImgPath = collection["ImagePath"].ToString();
             var path = Server.MapPath(Url.Content($"~/images/{ImgPath}"));
             ImageTagsLogic bl = new ImageTagsLogic();
             MedicineModel model = new MedicineModel();
             List<string> tags = bl.GetTags(path); //check images with Imagga
-          
+
+            //Add
             if (tags.Intersect(bl.DrugsTags).Any())
             {
-                ViewBag.message1 = model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], file, collection["NDC"]);
+                ViewBag.message1 = model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["ImagePath"], collection["NDC"]);
                 return RedirectToAction("Catalog");
             }
             else
@@ -94,12 +98,7 @@ namespace Medical.Controllers
             }              
 
         }
-        public ActionResult AddImage(HttpPostedFileBase file,int img)
-        {
-            MedicineModel model = new MedicineModel();
-            model.AddImage(file, img);
-            return RedirectToAction("Catalog");
-        }
+      
         public ActionResult Edit(int id)
         {
             MedicineModel model = new MedicineModel();
@@ -131,6 +130,5 @@ namespace Medical.Controllers
             return RedirectToAction("Catalog");
         }
 
-       
     }
 }
