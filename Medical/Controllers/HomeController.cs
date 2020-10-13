@@ -71,9 +71,11 @@ namespace Medical.Controllers
             }
 
             //Drugs Service
+            var id = collection["NDC"];
             DrugsLogic DL = new DrugsLogic();
-            string[] n = new string[2] { "0259-2102", "0254-3021" };
-            ViewBag.message2 = DL.GetDrugsResults(n);
+            PrescriptionsLogic BL = new PrescriptionsLogic();
+            var NDC_List = BL.GetNDCById(id);
+            ViewBag.drugsService = DL.GetDrugsResults(NDC_List.ToArray());
             
 
             //Images Service
