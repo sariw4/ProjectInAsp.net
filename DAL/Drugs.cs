@@ -37,7 +37,7 @@ namespace DAL
 
                     //Google Drive API
                     GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
-                    gd.UplaodFileOnDriveInFolder(file, file.FileName, "medicines");
+                    gd.UplaodFileOnDriveInFolder(file, file.FileName, "MedicinesImages");
 
                 }
             }
