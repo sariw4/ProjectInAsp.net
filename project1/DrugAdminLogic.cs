@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace BL
 {
@@ -31,6 +32,10 @@ namespace BL
         public IEnumerable<Medicine> GetMedicines()
         {
             return dal.GetMedicines();
+        }
+        public void AddImgDrug(int id, HttpPostedFileBase file)
+        {
+            dal.AddImageDrugs(id,file);
         }
 
         //public bool AddDrug(int id, string commercialName, string genericName, string producer,
