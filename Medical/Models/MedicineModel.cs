@@ -27,18 +27,17 @@ namespace Medical.Models
             Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, image, ndc);
             bl.UpdateDrugs(medicine, id);
         }
-        public string Add(string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, HttpPostedFileBase file, string ndc)
+        public string Add(string CommercialName, string GenericName, string Producer, string ActiveIngredients, string DoseCharacteristic, string ndc)
         {
             
             Medicine medicine = new Medicine(CommercialName, GenericName, Producer, ActiveIngredients, DoseCharacteristic, null, ndc);
             
-            string message=bl.AddDrugs(medicine,null);
+            string message=bl.AddDrugs(medicine);
             return message;
         }
         public void AddImage(HttpPostedFileBase file, int id)
         {
-            Medicine med = bl.GetMedicines().FirstOrDefault(m => m.Id == id);
-            med.ImageUrl = file.FileName;
+            bl.AddImgDrug(id, file);
         }
 
         public void delete(int id)

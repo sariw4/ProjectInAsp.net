@@ -11,7 +11,7 @@ namespace DAL
 {
     public class Drugs
     {
-        public void InsertDrugs(Medicine m, HttpPostedFileBase file)
+        public void InsertDrugs(Medicine m)
         {
             try
             {
@@ -20,10 +20,24 @@ namespace DAL
                     ctx.Drugs.Add(m);
                     ctx.SaveChanges();
 
-                    //HttpPostedFileBase file=File.WriteAllBytes("image", Convert.FromBase64String(m.ImageUrl));
+                    
+                }
+            }
+            catch (Exception e) { throw new Exception(e.Message); }
+        }
+        public void AddImageDrugs(int id, HttpPostedFileBase file)
+        {
+            try
+            {
+                using (var ctx = new mediDB())
+                {
+                    Medicine tmp = ctx.Drugs.First(m => m.Id == id);
+                    tmp.ImageUrl = file.FileName;
+                    ctx.SaveChanges();
+
                     //Google Drive API
                     GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
-                    gd.UplaodFileOnDriveInFolder(file,file.FileName,"medicines");
+                    gd.UplaodFileOnDriveInFolder(file, file.FileName, "medicines");
 
                 }
             }
