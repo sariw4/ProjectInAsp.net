@@ -16,7 +16,8 @@
 </script>
 <table class="table">
     <tr>
-        <td height="100"></td>
+        <td height="100">
+        </td>
     </tr>
     <tr>
         <th>
@@ -65,9 +66,14 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-
-                <a onclick="addImage(this)" Medicine-id="@item.Id" data-toggle="modal" data-target="#popup1" @*style="color:#C7187D; font-family:'Segoe UI';right:1000px"*@>add image</a>
-
+                @if (item.ImageUrl == null)
+                {
+                    <a onclick="addImage(this)" Medicine-id="@item.Id" data-toggle="modal" data-target="#popup1" @*style="color:#C7187D; font-family:'Segoe UI';right:1000px"*@>add image</a>
+                }
+                else
+                {
+                    <a onclick="addImage(this)" Medicine-id="@item.Id" data-toggle="modal" data-target="#popup1" @*style="color:#C7187D; font-family:'Segoe UI';right:1000px"*@>updat image</a>
+                }
 
                 @using (Html.BeginForm("AddImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
@@ -82,15 +88,20 @@
                                     </div>
 
                                     <div>
-                                        @*<label for="name" style="text-align:center"> Please select an image</label>*@
-                                        <input name="file" type="file" @*class="form-control"*@ id="file" required>
+                                        <label for="name" style="text-align:center"> Please select an image</label>
+                                        <input name="file" type="file" class="form-control" id="file" required>
                                         <label for="name" style=" color:red ">@ViewBag.message </label>
                                     </div>
                                     <div class="modal-footer" style="text-align:left">
                                         @*<input type="hidden" id="id" name="id" value="@item.Id" />*@
                                         <input id="id" name="id" type="hidden" required />
-                                        @*<button class="btn btn-outline-secondary" data-dismiss="modal">Exit</button>*@
-                                        <input type="submit" class="btn btn-primary py-3 px-5" value="Add Image">
+                                        @if (item.ImageUrl == null)
+                                        {
+                                            @*<button class="btn btn-outline-secondary" data-dismiss="modal">Exit</button>*@
+                                            <input type="submit" class="btn btn-primary py-3 px-5" value="Add Image">
+                                        }
+                                        else
+                                        { <input type="submit" class="btn btn-primary py-3 px-5" value="Update Image">}
                                     </div>
 
                                 </form>
@@ -103,7 +114,7 @@
     }
 
 </table>
-<label for="message1" style=" color:red ">@ViewBag.message1 </label>
-<div>
-    @Html.ActionLink("Add Medicine", "Create")
-</div>
+
+        <div>
+            @Html.ActionLink("Add Medicine", "Create")
+        </div>

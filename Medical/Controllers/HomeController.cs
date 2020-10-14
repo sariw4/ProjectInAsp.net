@@ -101,7 +101,7 @@ namespace Medical.Controllers
             else
             {
                 ViewBag.message = "The image that you added isn't a medicine!";
-                return View();
+                return RedirectToAction("Catalog");
             }
 
         }
