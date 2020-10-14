@@ -70,16 +70,8 @@ namespace Medical.Controllers
                 ViewBag.message2 = "There is no such a medicine NDC!";
                 return View();
             }
-
-            //Drugs Service
-            var id = collection["NDC"];
-            DrugsLogic DL = new DrugsLogic();
-            PrescriptionsLogic BL = new PrescriptionsLogic();
-            var NDC_List = BL.GetNDCById(id);
-            ViewBag.drugsService = DL.GetDrugsResults(NDC_List.ToArray());
+            
             MedicineModel model = new MedicineModel();
-
-
             ViewBag.message1 = model.Add(collection["CommercialName"], collection["GenericName"], collection["Producer"], collection["ActiveIngredients"], collection["DoseCharacteristic"], collection["NDC"]);
             return RedirectToAction("Catalog");
         
@@ -88,8 +80,8 @@ namespace Medical.Controllers
         }
         public ActionResult AddImage(int id, HttpPostedFileBase file)
         {
-            MedicineModel model = new MedicineModel();
             //Images Service
+            MedicineModel model = new MedicineModel();            
             var ImgPath = file.FileName;
             var path = Server.MapPath(Url.Content($"~/images/{ImgPath}"));
             ImageTagsLogic bl = new ImageTagsLogic();
