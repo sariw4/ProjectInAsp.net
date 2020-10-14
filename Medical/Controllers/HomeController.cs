@@ -68,6 +68,11 @@ namespace Medical.Controllers
             if (NDCs.GetMedicineByNdc(ndc).Count() == 0) //there is no such NDC
             {
                 ViewBag.message2 = "There is no such a medicine NDC!";
+                ViewBag.CommercialName = collection["CommercialName"];
+                ViewBag.GenericName = collection["GenericName"];
+                ViewBag.Producer = collection["Producer"];
+                ViewBag.ActiveIngredients = collection["ActiveIngredients"];
+                ViewBag.DoseCharacteristic = collection["DoseCharacteristic"];
                 return View();
             }
             
@@ -96,7 +101,7 @@ namespace Medical.Controllers
             else
             {
                 ViewBag.message = "The image that you added isn't a medicine!";
-                return View();
+                return RedirectToAction("Catalog");
             }
 
         }

@@ -17,9 +17,9 @@ namespace BL
             if(dal1.GetMedicineByNdc(m.NDC)!=null)
             {
                 dal.InsertDrugs(m);
-                return "התרופה נוספה בהצלחה";
+                return "The medicine was successfully added!";
             }
-            return "התרופה לא חוקית";
+            return "Illegal medicine!";
         }
         public void RemoveDrugs(int id)
         {
