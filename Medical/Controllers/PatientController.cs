@@ -41,6 +41,12 @@ namespace Medical.Controllers
         public ActionResult Prescription_(FormCollection collection)
         {        
             var ID = TempData["ID"];
+            if (DateTime.Parse(collection["BeginDate"]) > DateTime.Parse(collection["FinishDate"]))
+            {
+                ViewBag.errorDate = "Begin date should be before the finish date";
+                MedicineModel model = new MedicineModel();
+                return View(model.GetMedicines());
+            }
 
             return RedirectToAction("AreYouSure", new Prescription
             {
