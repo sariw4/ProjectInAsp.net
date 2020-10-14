@@ -67,7 +67,7 @@ namespace DAL
                 try
                 {
                     answer = results.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[0].description;
-                    answer += ". Severity: " + results.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[0].severity;
+                    answer += "\n Severity: " + results.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[0].severity;
                 }
                 catch (Exception) { }
                 return answer;
