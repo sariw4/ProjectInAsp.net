@@ -1,6 +1,7 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
+
     <title>Medically &mdash;</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,8 +27,6 @@
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-
     <div id="overlayer"></div>
     <div class="loader">
         <div class="spinner-border text-primary" role="status">
@@ -37,6 +36,8 @@
 
 
     <div class="site-wrap">
+
+
 
         <div class="site-mobile-menu site-navbar-target">
             <div class="site-mobile-menu-header">
@@ -54,58 +55,65 @@
                 <div class="row align-items-lg-start">
 
                     <div class="col-6 col-xl-2">
-                        <div class="mb-0 site-logo"><a href="index.html" class="mb-0">Medically<span class="text-primary">.</span> </a></div>
+                        <div class="mb-0 site-logo" style="top:20px"><a href="index.html" class="mb-0">Medically<span class="text-primary">.</span> </a></div>
+                    </div>
+
+                    <div>
+                        <audio src="/images/music.mp3" controls style="position: fixed; right: 30px; top:30px">
+                            <p>If you are reading this, it is because your browser does not support the audio element.</p>
+                        </audio>
                     </div>
 
                     @if (RouteConfig.user != null)
                     {
-                    <nav class="site-navigation position-relative text-right">
-                        <label class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                            Hello @RouteConfig.user.FirstName |
-                            @if (RouteConfig.user != null)
-                            {
-                                @Html.ActionLink("Logout", "Logout", "Home")
-                            }
-                        </label>
-
-                        <nav class="site-navigation position-relative text-left" role="navigation">
-                            <ul class="row align-items-lg-start">
-                                
-                                @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                        <nav class="site-navigation position-relative text-right">
+                            <label class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                                Hello @RouteConfig.user.FirstName |
+                                @if (RouteConfig.user != null)
                                 {
-                                    @Html.ActionLink("Home", "Index", "Home")
+                                    @Html.ActionLink("Logout", "Logout", "Home")
                                 }
-                                &nbsp; &nbsp;
+                            </label>
 
-                                @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
-                                {
-                                    @Html.ActionLink("Patients", "Patients", "Patient")
-                                }
-                                &nbsp; &nbsp;
-                                @if (RouteConfig.user.ReturnType() == "Admin")
-                                {
-                                    @Html.ActionLink("Doctors", "Doctors", "Doctor")
-                                }
+                            <nav class="site-navigation position-relative text-left" role="navigation">
+                                <ul class="row align-items-lg-start">
 
-                                &nbsp; &nbsp;
-                                @if (RouteConfig.user.ReturnType() == "Admin")
-                                {
+                                    @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                                    {
+                                        @Html.ActionLink("Home", "Index", "Home")
+                                    }
+                                    &nbsp; &nbsp;
 
-                                    @Html.ActionLink("Medicines Catalog", "Catalog", "Home")
+                                    @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                                    {
+                                        @Html.ActionLink("Patients", "Patients", "Patient")
+                                    }
+                                    &nbsp; &nbsp;
+                                    @if (RouteConfig.user.ReturnType() == "Admin")
+                                    {
+                                        @Html.ActionLink("Doctors", "Doctors", "Doctor")
+                                    }
+
+                                    &nbsp; &nbsp;
+                                    @if (RouteConfig.user.ReturnType() == "Admin")
+                                    {
+
+                                        @Html.ActionLink("Medicines Catalog", "Catalog", "Home")
 
 
-                                    <li><a href="contact.html" class="nav-link">Contact</a></li>
-                                }
+                                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                                    }
 
 
-                            </ul>
+                                </ul>
+                            </nav>
                         </nav>
-                    </nav>
                     }
 
-                        <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
+                    <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
 
-                    </div>
+                </div>
+
             </div>
 
         </header>
@@ -116,15 +124,15 @@
             <div class="container">
                 <div class="row">
                     @*<div class="col-lg-3">
-                        <h2 class="footer-heading mb-4">Departments</h2>
-                        <ul class="list-unstyled">
-                            <li><a href="#">X-Ray</a></li>
-                            <li><a href="#">Children Care</a></li>
-                            <li><a href="#">Eye Treatment</a></li>
-                            <li><a href="#">Nose Treatment</a></li>
-                            <li><a href="#">Surgery</a></li>
-                        </ul>
-                    </div>*@
+                            <h2 class="footer-heading mb-4">Departments</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#">X-Ray</a></li>
+                                <li><a href="#">Children Care</a></li>
+                                <li><a href="#">Eye Treatment</a></li>
+                                <li><a href="#">Nose Treatment</a></li>
+                                <li><a href="#">Surgery</a></li>
+                            </ul>
+                        </div>*@
 
                     <div class="col-lg-3">
                         <h2 class="footer-heading mb-4">Social</h2>
@@ -137,14 +145,14 @@
 
 
                         @*<h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-                        <form action="#" method="post" id="footer-subscribe" class="footer-subscribe">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control  bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-white text-black" type="button" id="button-addon2">Send</button>
+                            <form action="#" method="post" id="footer-subscribe" class="footer-subscribe">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control  bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-white text-black" type="button" id="button-addon2">Send</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>*@
+                            </form>*@
                     </div>
                 </div>
                 <div class="row pt-5 mt-5 text-center">
@@ -175,7 +183,6 @@
 
 
     <script src="/js/main.js"></script>
-
 
 </body>
 
