@@ -66,27 +66,14 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                @*<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="btn btn-primary">Add Image</button>
-        <form class="modal-content animate" action="~/Home/AddImage">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                @if (item.ImageUrl == null)
                 {
-                    <div>
-                        <label for="name">Select Image</label>
-                        <input name="file" type="file" class="form-control" id="file" required>
-                        <label for="name" style=" color:red ">@ViewBag.message </label>
-                    </div>
-
-                    <div>
-                        <input type="hidden" id="id" name="id" value="@item.Id" />
-                        <input type="submit" class="btn btn-primary py-3 px-5" value="Add Image">
-                    </div>
+                    <a onclick="addImage(this)" Medicine-id="@item.Id" data-toggle="modal" data-target="#popup1" @*style="color:#C7187D; font-family:'Segoe UI';right:1000px"*@>add image</a>
                 }
-            </div>
-        </form>*@
-                <a onclick="addImage(this)" Medicine-id="@item.Id" data-toggle="modal" data-target="#popup1" @*style="color:#C7187D; font-family:'Segoe UI';right:1000px"*@>add image</a>
-
+                else
+                {
+                    <a onclick="addImage(this)" Medicine-id="@item.Id" data-toggle="modal" data-target="#popup1" @*style="color:#C7187D; font-family:'Segoe UI';right:1000px"*@>updat image</a>
+                }
 
                 @using (Html.BeginForm("AddImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
@@ -108,8 +95,13 @@
                                     <div class="modal-footer" style="text-align:left">
                                         @*<input type="hidden" id="id" name="id" value="@item.Id" />*@
                                         <input id="id" name="id" type="hidden" required />
-                                        @*<button class="btn btn-outline-secondary" data-dismiss="modal">Exit</button>*@
-                                        <input type="submit" class="btn btn-primary py-3 px-5" value="Add Image">
+                                        @if (item.ImageUrl == null)
+                                        {
+                                            @*<button class="btn btn-outline-secondary" data-dismiss="modal">Exit</button>*@
+                                            <input type="submit" class="btn btn-primary py-3 px-5" value="Add Image">
+                                        }
+                                        else
+                                        { <input type="submit" class="btn btn-primary py-3 px-5" value="Update Image">}
                                     </div>
 
                                 </form>

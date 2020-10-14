@@ -59,7 +59,7 @@ namespace DAL
         public void deleteFile(string fileName)
         {
             string fileId = (from file in this.GetDriveFiles()
-                             where file.Name == (fileName + Path.GetExtension(file.Name))
+                             where @"/images/"+file.Name == (fileName + Path.GetExtension(file.Name))
                              select file.Id).FirstOrDefault();
             if (fileId != null)
             {
@@ -94,7 +94,7 @@ namespace DAL
                 //create service
                 Google.Apis.Drive.v3.DriveService service = GetService();
                 string path =
-                Path.Combine(HttpContext.Current.Server.MapPath(" ~/GoogleDriveFiles"),
+                Path.Combine(HttpContext.Current.Server.MapPath("~/GoogleDriveFiles"),
                 Path.GetFileName(file.FileName));
                 file.SaveAs(path);
                 var FileMetaData = new Google.Apis.Drive.v3.Data.File();
