@@ -50,63 +50,67 @@
 
         <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
+            <audio src="/images/music.mp3" controls style="position:fixed; right: 30px; top:30px">
+                <p>If you are reading this, it is because your browser does not support the audio element.</p>
+            </audio>
+
             <div class="container">
                 <div class="row align-items-lg-start">
 
                     <div class="col-6 col-xl-2">
-                        <div class="mb-0 site-logo"><a href="index.html" class="mb-0">Medically<span class="text-primary">.</span> </a></div>
+                        <div class="mb-0 site-logo" style="top: 30px"><a href="index.html" class="mb-0" style="font-size:30px">Medically<span class="text-primary">.</span> </a></div>
                     </div>
 
                     @if (RouteConfig.user != null)
                     {
-                    <nav class="site-navigation position-relative text-right">
+                        <nav class="site-navigation position-relative text-right">
 
 
-                        <nav class="site-navigation position-relative text-left" role="navigation">
-                            <ul class="row align-items-lg-start" style="float:right;">
+                            <nav class="site-navigation position-relative text-left" role="navigation">
+                                <ul class="row align-items-lg-start" style="float:right;">
 
-                                @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
-                                {
-                                    @Html.ActionLink("Home", "Index", "Home")
-                                }
-                                &nbsp; &nbsp;
+                                    @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                                    {
+                                        @Html.ActionLink("Home", "Index", "Home")
+                                    }
+                                    &nbsp; &nbsp;
 
-                                @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
-                                {
-                                    @Html.ActionLink("Patients", "Patients", "Patient")
-                                }
-                                &nbsp; &nbsp;
-                                @if (RouteConfig.user.ReturnType() == "Admin")
-                                {
-                                    @Html.ActionLink("Doctors", "Doctors", "Doctor")
-                                }
+                                    @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                                    {
+                                        @Html.ActionLink("Patients", "Patients", "Patient")
+                                    }
+                                    &nbsp; &nbsp;
+                                    @if (RouteConfig.user.ReturnType() == "Admin")
+                                    {
+                                        @Html.ActionLink("Doctors", "Doctors", "Doctor")
+                                    }
 
-                                &nbsp; &nbsp;
-                                @if (RouteConfig.user.ReturnType() == "Admin")
-                                {
+                                    &nbsp; &nbsp;
+                                    @if (RouteConfig.user.ReturnType() == "Admin")
+                                    {
 
-                                    @Html.ActionLink("Medicines Catalog", "Catalog", "Home")
-
-
-                                    <li><a href="contact.html" class="nav-link">Contact</a></li>
-                                }
+                                        @Html.ActionLink("Medicines Catalog", "Catalog", "Home")
 
 
-                            </ul>
-                            <label class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                                Hello @RouteConfig.user.FirstName |
-                                @if (RouteConfig.user != null)
-                                {
-                                    @Html.ActionLink("Logout", "Logout", "Home")
-                                }
-                            </label>
+                                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                                    }
+
+
+                                </ul>
+                                <label class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                                    Hello @RouteConfig.user.FirstName |
+                                    @if (RouteConfig.user != null)
+                                    {
+                                        @Html.ActionLink("Logout", "Logout", "Home")
+                                    }
+                                </label>
+                            </nav>
                         </nav>
-                    </nav>
                     }
 
-                        <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
+                    <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
 
-                    </div>
+                </div>
             </div>
 
         </header>
