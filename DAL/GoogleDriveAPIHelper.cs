@@ -1,7 +1,6 @@
 ﻿using BE;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Download;
-//using Google.Apis.Drive.v2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
@@ -13,8 +12,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
-//using DriveService = Google.Apis.Drive.v3.DriveService;
-
 namespace DAL
 {
     public class GoogleDriveAPIHelper
@@ -97,7 +94,7 @@ namespace DAL
                 //create service
                 Google.Apis.Drive.v3.DriveService service = GetService();
                 string path =
-                Path.Combine(HttpContext.Current.Server.MapPath(" ~/ GoogleDriveFiles"),
+                Path.Combine(HttpContext.Current.Server.MapPath(" ~/GoogleDriveFiles"),
                 Path.GetFileName(file.FileName));
                 file.SaveAs(path);
                 var FileMetaData = new Google.Apis.Drive.v3.Data.File();
@@ -143,7 +140,7 @@ namespace DAL
                 DriveService service = GetService();
                 //get file path
                 string path =
-                Path.Combine(HttpContext.Current.Server.MapPath("~/ GoogleDriveFiles"),
+                Path.Combine(HttpContext.Current.Server.MapPath("~/GoogleDriveFiles"),
                 Path.GetFileName(file.FileName));
                 file.SaveAs(path);
                 //create file metadata
@@ -193,7 +190,7 @@ namespace DAL
                 DriveService service = GetService();
                 //get file path
                 string path =
-                Path.Combine(HttpContext.Current.Server.MapPath("~/ GoogleDriveFiles"),
+                Path.Combine(HttpContext.Current.Server.MapPath("~/GoogleDriveFiles"),
                 Path.GetFileName(file.FileName));
                 file.SaveAs(path);
                 //create file metadata
@@ -265,9 +262,9 @@ namespace DAL
         {
             DriveService service = GetService();
             List<GoogleDriveFile> FolderList = new List<GoogleDriveFile>();
-            Google.Apis.Drive.v3.FilesResource.ListRequest request = service.Files.List();
-            request.Q = "mimeType = &#39;application/vnd.google-apps.folder&#39;";
-            request.Fields = "files(id, name) ";
+            FilesResource.ListRequest request = service.Files.List();
+            request.Q = "mimeType='application/vnd.google-apps.folder'";
+            request.Fields = "files(id, name)";
             Google.Apis.Drive.v3.Data.FileList result = request.Execute();
             foreach (var file in result.Files)
             {
@@ -280,11 +277,9 @@ namespace DAL
                     CreatedTime = file.CreatedTime
                 };
                 FolderList.Add(File);
-
             }
             return FolderList;
         }
-
         /// &lt;summary&gt;
         /// Create Folder in root
         /// &lt;/summary&gt;

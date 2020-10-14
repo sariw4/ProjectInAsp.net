@@ -29,10 +29,15 @@ namespace DAL
         {
             try
             {
+              //  string path =
+               // Path.Combine(HttpContext.Current.Server.MapPath("~/GoogleDriveFiles"),
+               // Path.GetFileName(file.FileName));
+               // file.SaveAs(path);
                 using (var ctx = new mediDB())
                 {
                     Medicine tmp = ctx.Drugs.First(m => m.Id == id);
-                    tmp.ImageUrl = file.FileName;
+
+                    tmp.ImageUrl = @"/images/" + file.FileName;
                     ctx.SaveChanges();
 
                     //Google Drive API
