@@ -67,7 +67,7 @@
                         <nav class="site-navigation position-relative text-right">
 
 
-                            <nav class="site-navigation position-relative text-left" role="navigation">
+                            <div>
                                 <ul class="row align-items-lg-start" style="float:right;">
 
                                     @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
@@ -98,14 +98,16 @@
 
 
                                 </ul>
-                                <label class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                            </div>
+                            <div>
+                                <label class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block" style="text-align:right">
                                     Hello @RouteConfig.user.FirstName |
                                     @if (RouteConfig.user != null)
                                     {
                                         @Html.ActionLink("Logout", "Logout", "Home")
                                     }
                                 </label>
-                            </nav>
+                            </div>
                         </nav>
                     }
 
