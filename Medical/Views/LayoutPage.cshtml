@@ -30,25 +30,98 @@
 
     <div id="overlayer"></div>
     <div class="loader">
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
+        <div class="spinner-border text-primary" role="status" >
+            <span  class="sr-only">Loading...</span>
         </div>
     </div>
 
 
     <div class="site-wrap">
 
-        <div class="site-mobile-menu site-navbar-target">
-            <div class="site-mobile-menu-header">
-                <div class="site-mobile-menu-close mt-3">
+        <div style="background-color:maroon" class="site-mobile-menu site-navbar-target">
+            <div style="background-color:maroon" class="site-mobile-menu-header">
+                <div style="background-color:maroon" class="site-mobile-menu-close mt-3">
                     <span class="icon-close2 js-menu-toggle"></span>
                 </div>
             </div>
             <div class="site-mobile-menu-body"></div>
         </div>
 
+        <header id="header" class="fixed-top">
+            <div class="container d-flex align-items-center">
 
-        <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+                @*<a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>*@
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <h1 class="logo mr-auto">
+                    <a href="~/">
+                        <img src="~/images/doctor.png" /> MediKal
+                    </a>
+                </h1>
+                @if (RouteConfig.user != null)
+                {
+                    <nav class="nav-menu d-none d-lg-block">
+                        <ul>
+                            @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                            {
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            }
+                            @*<li class="active"><a href="index.html">Home</a></li>*@
+                            @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
+                            {
+                                <li>@Html.ActionLink("Patients", "Patients", "Patient")</li>
+                            }
+                            @if (RouteConfig.user.ReturnType() == "Admin")
+                            {
+                                <li>@Html.ActionLink("Doctors", "Doctors", "Doctor")</li>
+                            }
+                            @if (RouteConfig.user.ReturnType() == "Admin")
+                            {
+
+                                <li> @Html.ActionLink("Medicines Catalog", "Catalog", "Home")</li>
+
+
+                                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                            }
+                            @*<li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#departments">Departments</a></li>
+                    <li><a href="#doctors">Doctors</a></li>*@
+                            <!-- <li class="drop-down"><a href="">Drop Down</a>
+                  <ul>
+                    <li><a href="#">Drop Down 1</a></li>
+                    <li class="drop-down"><a href="#">Deep Drop Down</a>
+                      <ul>
+                        <li><a href="#">Deep Drop Down 1</a></li>
+                        <li><a href="#">Deep Drop Down 2</a></li>
+                        <li><a href="#">Deep Drop Down 3</a></li>
+                        <li><a href="#">Deep Drop Down 4</a></li>
+                        <li><a href="#">Deep Drop Down 5</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">Drop Down 2</a></li>
+                    <li><a href="#">Drop Down 3</a></li>
+                    <li><a href="#">Drop Down 4</a></li>
+                  </ul>
+                </li> -->
+                            <li></li>
+
+                        </ul>
+
+                    </nav><!-- .nav-menu -->
+                    @*<a class="green-btn" href="~/Account/EnterId">Sign Up</a>*@
+                  
+                    if (RouteConfig.user != null)
+                    {
+                        <a class="blue-btn" href="~/Home/Logout" style="color:white"><i class="fa fa-sign-in"></i> Log Out</a>
+                    }
+
+                }
+
+
+            </div>
+        </header>
+
+        @*<header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
             <audio src="/images/music.mp3" controls style="position:fixed; right: 30px; top:30px">
                 <p>If you are reading this, it is because your browser does not support the audio element.</p>
@@ -57,18 +130,24 @@
             <div class="container">
                 <div class="row align-items-lg-start">
 
-                    <div class="col-6 col-xl-2">
-                        <div class="mb-0 site-logo" style="top: 30px"><a href="index.html" class="mb-0" style="font-size:30px">Medically<span class="text-primary">.</span> </a></div>
-                    </div>
 
                     @if (RouteConfig.user != null)
                     {
-                        <nav class="site-navigation position-relative text-right">
 
 
-                            <div>
-                                <ul class="row align-items-lg-start" style="float:right;">
 
+                        <div style="float:right">
+                            <div class="mb-0 site-logo" style="top: 30px">
+                                <lable class="mb-0" style="font-size:30px; text-align:center">Medically<span style="color:maroon" class="text-primary">.</span> </lable>
+                                <br />
+                                <ul class="row align-items-lg-start" style="text-align:center; font-size:large; ">
+                                    <text>Hello @RouteConfig.user.FirstName @RouteConfig.user.LastName |</text>
+                                    &nbsp;
+                                    @if (RouteConfig.user != null)
+                                    {
+                                        @Html.ActionLink("Logout", "Logout", "Home", new { @class="blue-btn"})
+                                    }
+                                    &nbsp; &nbsp;
                                     @if (RouteConfig.user.ReturnType() == "Admin" || RouteConfig.user.ReturnType() == "Doctor")
                                     {
                                         @Html.ActionLink("Home", "Index", "Home")
@@ -97,31 +176,25 @@
 
 
                                 </ul>
+
+
+
+                                <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
+
                             </div>
-                            <div>
-                                <label class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block" style="text-align:right">
-                                    Hello @RouteConfig.user.FirstName |
-                                    @if (RouteConfig.user != null)
-                                    {
-                                        @Html.ActionLink("Logout", "Logout", "Home")
-                                    }
-                                </label>
-                            </div>
-                        </nav>
+                        </div>
                     }
+                    </div>
 
-                    <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-black"></span></a></div>
-
-                </div>
             </div>
 
-        </header>
+        </header>*@
 
 
         @RenderBody()
-        <footer class="site-footer bg-primary">
-            <div class="container">
-                <div class="row">
+        <footer style="background-color:maroon; padding:0px" class="site-footer bg-primary" >
+            <div style="background-color:maroon" class="col">
+                <div style="background-color:maroon" class="row">
                     @*<div class="col-lg-3">
                         <h2 class="footer-heading mb-4">Departments</h2>
                         <ul class="list-unstyled">
@@ -133,13 +206,13 @@
                         </ul>
                     </div>*@
 
-                    <div class="col-lg-3">
-                        <h2 class="footer-heading mb-4">Social</h2>
-                        <div class="social mb-5">
-                            <a href="#" class=""><span class="icon-facebook"></span></a>
-                            <a href="#" class=""><span class="icon-twitter"></span></a>
-                            <a href="#" class=""><span class="icon-linkedin"></span></a>
-                            <a href="#" class=""><span class="icon-instagram"></span></a>
+                    <div class="col-lg-3" style="background-color:maroon">
+                        @*<h2 class="footer-heading">Social</h2>*@
+                        <div style="background-color:maroon; margin:0px" class="social">
+                            <a href="#" class=""><span style="color:maroon" class="icon-facebook"></span></a>
+                            <a href="#" class=""><span style="color:maroon" class="icon-twitter"></span></a>
+                            <a href="#" class=""><span style="color:maroon" class="icon-linkedin"></span></a>
+                            <a href="#" class=""><span style="color:maroon" class="icon-instagram"></span></a>
                         </div>
 
 
@@ -154,9 +227,9 @@
                         </form>*@
                     </div>
                 </div>
-                <div class="row pt-5 mt-5 text-center">
-                    <div class="col-md-12">
-                        <div class="border-top pt-5">
+                <div style="background-color:maroon" class="row pt-5 mt-5 text-center">
+                    <div style="background-color:maroon" class="col-md-12">
+                        <div style="background-color:maroon" class="border-top pt-5">
                             <p class="copyright">
 
                             </p>
