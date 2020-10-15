@@ -47,7 +47,7 @@ namespace Medical.Controllers
                 MedicineModel model = new MedicineModel();
                 return View(model.GetMedicines());
             }
-
+            var medicines = new MedicineModel();
             return RedirectToAction("AreYouSure", new Prescription
             {
                 Id = int.Parse(ID.ToString()),
@@ -55,8 +55,10 @@ namespace Medical.Controllers
                 DoctorLastName = RouteConfig.user.LastName,
                 Medicine = collection["Medicine"],
                 BeginTime = DateTime.Parse(collection["BeginDate"]),
-                FinishTime = DateTime.Parse(collection["FinishDate"])
-            });
+                FinishTime = DateTime.Parse(collection["FinishDate"]),
+                Ndc =  medicines.GetMedicines().Where(x => x.CommercialName == collection["Medicine"].ToString()).FirstOrDefault().NDC //get current prescription ndc
+
+        });
         }
 
         public ActionResult AreYouSure(Prescription pres)
@@ -66,9 +68,7 @@ namespace Medical.Controllers
             DrugsLogic DL = new DrugsLogic();
             PrescriptionsLogic BL = new PrescriptionsLogic();
             var NDC_List = BL.GetNDCById(pres.Id.ToString()).ToList();
-            var medicines = new MedicineModel();
-            var ndc = medicines.GetMedicines().Where(x => x.CommercialName == pres.Medicine.ToString()).FirstOrDefault().NDC; //get current prescription ndc
-            NDC_List.Add(ndc);
+            NDC_List.Add(pres.Ndc);
             
             string results = DL.GetDrugsResults(NDC_List.ToArray());
             ViewBag.message = results;
@@ -81,7 +81,7 @@ namespace Medical.Controllers
             if (submit == "Add Prescription")
             {
                 PatientModel model = new PatientModel();
-                model.AddPrescription(collection["id"], collection["first"], collection["last"], collection["medicine"], collection["begin"], collection["finish"]);
+                model.AddPrescription(collection["id"], collection["first"], collection["last"], collection["medicine"], collection["begin"], collection["finish"], collection["ndc"]);
             }
             var Model = new PatientModel();
             return View("Patients", Model.GetPatients());
