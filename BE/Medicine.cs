@@ -30,7 +30,7 @@ namespace BE
         //public DateTime EndT { get; set; }
         
         public string NDC { get; set; }
-        public string ToString()
+        public override string ToString()
         {
             return CommercialName + " " + GenericName + " " + Producer + " " + ActiveIngredients + " " + DoseCharacteristic + " " + NDC + " ";
         }
