@@ -1,4 +1,5 @@
-﻿@{ ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Index";
     Layout = "~/Views/LayoutPage.cshtml";
 }
 <!doctype html>
@@ -37,8 +38,8 @@
 
 
     <div class="slide-item overlay" style="background-image: url('/images/hero1.jpg'); ">
-        <div class="container">
-            <div class="row">
+        <div class="container" >
+            <div class="row" >
                 <div class="col-lg-6 align-self-center" style="width: 800px; margin: 0 auto; text-align:center; min-width :max-content">
                     <h1 class="heading mb-5" style="font-family:'Lucida Handwriting'; font-size:70px">Welcome To Our Services</h1>
                     <h1 class="heading mb-5" style="font-size:40px; font-family:'Lucida Handwriting'">We Wish You Good Luck!<sup>*</sup></h1>
@@ -55,7 +56,7 @@
     </div>
     <div id="id01" class="modal">
 
-        <form class="modal-content animate" method="post">
+        <form class="modal-content animate" method="post" >
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <img src="/images/unnamed.png" alt="Avatar" class="avatar">
@@ -72,13 +73,14 @@
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
-
+                
             </div>
-
+           
         </form>
-    </div>
 
-    <div class="container quick-contact">
+</div>
+
+    <div class="container quick-contact" style="min-width: -webkit-fill-available;">
         <div class="row">
             <div class="col-lg-4">
                 <a href="#" class="link-lg d-flex align-items-center" style="color: maroon">
@@ -96,6 +98,15 @@
                     <div>
                         <span>Send us a message</span>
                         <strong>MedicalProject333@gmail.com</strong>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a href="#" class="link-lg d-flex align-items-center" style="color: maroon">
+                    <span style="color: maroon;" class="icon-home"></span>
+                    <div>
+                        <span>Visit us</span>
+                        <strong>Hashomrim 10, Tel Aviv</strong>
                     </div>
                 </a>
             </div>

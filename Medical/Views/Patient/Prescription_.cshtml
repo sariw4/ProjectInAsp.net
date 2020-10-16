@@ -38,11 +38,11 @@
                     </div>
                     <div class="form-group">
                         <label for="BeginDate">Begin Date</label>
-                        <input name="BeginDate" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" id="BeginDate">
+                        <input name="BeginDate" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" id="BeginDate" required>
                     </div>
                     <div class="form-group">
                         <label for="FinishDate">Finish Date</label>
-                        <input name="FinishDate" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" id="FinishDate">
+                        <input name="FinishDate" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" id="FinishDate" required>
                     </div>
                     <p style="color:red">@ViewBag.errorDate</p>
                     <div class="form-group">

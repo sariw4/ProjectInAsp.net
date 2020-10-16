@@ -44,6 +44,7 @@ namespace Medical.Controllers
             if (DateTime.Parse(collection["BeginDate"]) > DateTime.Parse(collection["FinishDate"]))
             {
                 ViewBag.errorDate = "Begin date should be before the finish date";
+                ViewBag.id = ID;
                 MedicineModel model = new MedicineModel();
                 return View(model.GetMedicines());
             }
