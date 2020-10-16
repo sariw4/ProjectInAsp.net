@@ -63,8 +63,14 @@ namespace DAL
                 var results = JsonConvert.DeserializeObject<DrugsInteractionContent>(json_data);
                 //return the results
                 if (results.fullInteractionTypeGroup == null) return "No risks";
-                return results.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[0].description;
-               
+                string answer="";
+                try
+                {
+                    answer = results.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[0].description;
+                    answer += "\n Severity: " + results.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[0].severity;
+                }
+                catch (Exception) { }
+                return answer;
             }
 
         }

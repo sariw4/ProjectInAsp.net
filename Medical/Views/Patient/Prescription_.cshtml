@@ -38,15 +38,16 @@
                     </div>
                     <div class="form-group">
                         <label for="BeginDate">Begin Date</label>
-                        <input name="BeginDate" type="date" class="form-control" id="BeginDate">
+                        <input name="BeginDate" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" id="BeginDate">
                     </div>
                     <div class="form-group">
                         <label for="FinishDate">Finish Date</label>
-                        <input name="FinishDate" type="date" class="form-control" id="FinishDate">
+                        <input name="FinishDate" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" id="FinishDate">
                     </div>
+                    <p style="color:red">@ViewBag.errorDate</p>
                     <div class="form-group">
                         <a data-toggle="modal" data-target="#popup1" style="color:#C7187D; font-family:'Segoe UI';right:1000px">בלה</a>
-                        @*<input type="submit" class="btn btn-primary py-3 px-5" value="Add Prescription">*@
+                        <input type="submit" class="btn btn-primary py-3 px-5" value="Add Prescription">
                     </div>
                 </form>
             </div>

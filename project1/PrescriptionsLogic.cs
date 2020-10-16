@@ -24,6 +24,7 @@ namespace BL
         {
             return dal.GetPrescriptionsById(id);
         }
+        //למה ב bl
         public IEnumerable<string> GetNDCById(string id)
         {
             int Id = int.Parse(id);
@@ -33,8 +34,7 @@ namespace BL
             {
                 if(item.PatientId==Id)
                 {
-                    Medicine m = DrugsDal.GetMedicineByName(item.Medicine);
-                    NDC.Add(m.NDC);
+                    NDC.Add(item.Ndc);
                 }
             }
             return NDC;

@@ -63,7 +63,7 @@
 @if (RouteConfig.user.ReturnType() == "Doctor")
 {
     <div>
-        @Html.ActionLink("Add Prescription", "Prescription_", new { id = ViewBag.id })
+        @Html.ActionLink("Add Prescription", "Prescription_", new { id = ViewBag.id , @class= "blu-bt" })
     </div>
 
 }

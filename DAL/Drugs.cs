@@ -29,15 +29,32 @@ namespace DAL
         {
             try
             {
+              //  string path =
+               // Path.Combine(HttpContext.Current.Server.MapPath("~/GoogleDriveFiles"),
+               // Path.GetFileName(file.FileName));
+               // file.SaveAs(path);
                 using (var ctx = new mediDB())
                 {
                     Medicine tmp = ctx.Drugs.First(m => m.Id == id);
-                    tmp.ImageUrl = file.FileName;
-                    ctx.SaveChanges();
+                    if (tmp.ImageUrl==null)
+                    {
+                        tmp.ImageUrl = @"/images/" + file.FileName;
+                        ctx.SaveChanges();
 
-                    //Google Drive API
-                    GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
-                    gd.UplaodFileOnDriveInFolder(file, file.FileName, "MedicinesImages");
+                        //Google Drive API
+                        GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
+                        gd.UplaodFileOnDriveInFolder(file, file.FileName, "MedicinesImages");
+                    }
+                    else
+                    {
+                        GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
+                        gd.deleteFile(tmp.ImageUrl);
+                        tmp.ImageUrl = @"/images/" + file.FileName;
+                        ctx.SaveChanges();
+
+                        //Google Drive API
+                        gd.UplaodFileOnDriveInFolder(file, file.FileName, "MedicinesImages");
+                    }
 
                 }
             }
@@ -50,13 +67,14 @@ namespace DAL
             {
                 using (var ctx = new mediDB())
                 {
+                    //Google Drive API
+                    GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
                     Medicine medicine = ctx.Drugs.Find(id);
+                    gd.deleteFile(medicine.ImageUrl);
                     ctx.Drugs.Remove(medicine);
                     ctx.SaveChanges();
 
-                    //Google Drive API
-                    GoogleDriveAPIHelper gd = new GoogleDriveAPIHelper();
-                    //gd.deleteFile(id.ToString());
+                    
 
                 }
             }

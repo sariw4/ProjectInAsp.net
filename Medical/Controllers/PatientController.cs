@@ -39,19 +39,52 @@ namespace Medical.Controllers
         }
         [HttpPost]
         public ActionResult Prescription_(FormCollection collection)
-        {
-            PatientModel model = new PatientModel();
-            try
+        {        
+            var ID = TempData["ID"];
+            if (DateTime.Parse(collection["BeginDate"]) > DateTime.Parse(collection["FinishDate"]))
             {
-                var x = TempData["ID"];
-                model.AddPrescription(x.ToString(), RouteConfig.user.FirstName, RouteConfig.user.LastName, collection["Medicine"], collection["BeginDate"], collection["FinishDate"]);
-                return RedirectToAction("Patients");
+                ViewBag.errorDate = "Begin date should be before the finish date";
+                MedicineModel model = new MedicineModel();
+                return View(model.GetMedicines());
+            }
+            var medicines = new MedicineModel();
+            return RedirectToAction("AreYouSure", new Prescription
+            {
+                Id = int.Parse(ID.ToString()),
+                DoctorFirstName = RouteConfig.user.FirstName,
+                DoctorLastName = RouteConfig.user.LastName,
+                Medicine = collection["Medicine"],
+                BeginTime = DateTime.Parse(collection["BeginDate"]),
+                FinishTime = DateTime.Parse(collection["FinishDate"]),
+                Ndc =  medicines.GetMedicines().Where(x => x.CommercialName == collection["Medicine"].ToString()).FirstOrDefault().NDC //get current prescription ndc
 
-            }
-            catch
+        });
+        }
+
+        public ActionResult AreYouSure(Prescription pres)
+        {
+            
+            //Drugs Service
+            DrugsLogic DL = new DrugsLogic();
+            PrescriptionsLogic BL = new PrescriptionsLogic();
+            var NDC_List = BL.GetNDCById(pres.Id.ToString()).ToList();
+            NDC_List.Add(pres.Ndc);
+            
+            string results = DL.GetDrugsResults(NDC_List.ToArray());
+            ViewBag.message = results;
+            return View(pres);
+        }
+
+        [HttpPost]
+        public ActionResult AreYouSure(FormCollection collection, string submit)
+        {
+            if (submit == "Add Prescription")
             {
-                return View();
+                PatientModel model = new PatientModel();
+                model.AddPrescription(collection["id"], collection["first"], collection["last"], collection["medicine"], collection["begin"], collection["finish"], collection["ndc"]);
             }
+            var Model = new PatientModel();
+            return View("Patients", Model.GetPatients());
         }
 
         // GET: Patient/Create

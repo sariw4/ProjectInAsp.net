@@ -125,7 +125,7 @@
     <Content Include="images\8165173_xl.jpg" />
     <Content Include="images\about.png" />
     <Content Include="images\Advil.jpg" />
-    <Content Include="images\hero.jpg" />
+    <Content Include="images\hero1.jpg" />
     <Content Include="images\img_2.jpg" />
     <Content Include="images\img_3.jpg" />
     <Content Include="images\img_4.jpg" />
@@ -302,6 +302,7 @@
     <Content Include="Views\Patient\Prescriptions.cshtml" />
     <Content Include="Views\Patient\Prescription_.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Patient\AreYouSure.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -311,7 +312,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="GoogleDriveFile\" />
+    <Folder Include="GoogleDriveFiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
