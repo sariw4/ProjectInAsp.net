@@ -5,14 +5,15 @@
     Layout = "~/Views/LayoutPage.cshtml";
 }
 
-<h2>Doctors</h2>
 
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<h3>Doctors</h3>
 <table class="table">
-    <tr>
-        <td height="100">
-        </td>
-    </tr>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
@@ -37,35 +38,47 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.FirstName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LastName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Phone)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Email)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LicenceNumber)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Expertist)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </td>
-</tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicenceNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expertist)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
     }
 
 </table>
 <label style="color:darkblue">@ViewBag.mailMessage</label>
 <div>
-    @Html.ActionLink("Add Doctor", "AddDoctor")
+    @*Html.ActionLink("Add Doctor", "AddDoctor")*@
+    <a class="blue-btn" href="~/Doctor/AddDoctor" style="color:white"><i class="fa fa-sign-in"></i>Add Doctor</a>
 </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<bdr />
 
