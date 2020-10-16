@@ -27,6 +27,7 @@ namespace Medical.Controllers
             }
             catch
             {
+                ViewBag.message = "The username or password you entered is incorrect!";
                 return View();
             }
         }

@@ -5,14 +5,15 @@
     Layout = "~/Views/LayoutPage.cshtml";
 }
 
-<h2>Prescriptions</h2>
 
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<h3>Prescriptions</h3>
 <table class="table">
-    <tr>
-        <td height="100">
-        </td>
-    </tr>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.PatientId)
@@ -63,7 +64,18 @@
 @if (RouteConfig.user.ReturnType() == "Doctor")
 {
     <div>
-        @Html.ActionLink("Add Prescription", "Prescription_", new { id = ViewBag.id , @class= "blu-bt" })
+        @Html.ActionLink("Add Prescription", "Prescription_", new { id = ViewBag.id }, new { @class = "blue-btn", @style = "color:white" })
     </div>
 
 }
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<bdr />
