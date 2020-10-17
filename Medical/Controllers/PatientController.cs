@@ -44,6 +44,7 @@ namespace Medical.Controllers
             if (DateTime.Parse(collection["BeginDate"]) > DateTime.Parse(collection["FinishDate"]))
             {
                 ViewBag.errorDate = "Begin date should be before the finish date";
+                ViewBag.id = ID;
                 MedicineModel model = new MedicineModel();
                 return View(model.GetMedicines());
             }
@@ -158,5 +159,26 @@ namespace Medical.Controllers
                 return View();
             }
         }
+        public ActionResult Print(int id)
+        {
+            PatientModel model = new PatientModel();
+            var Prescription = model.GetPrescriptions().First(m => m.Id == id);
+            return View(Prescription);
+        }
+        [HttpPost]
+        public ActionResult Print(FormCollection collection)
+        {
+            try
+            {
+               
+                return RedirectToAction("Patients");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
     }
 }
