@@ -7,10 +7,13 @@
 <div class="site-section pb-0">
     <div class="container">
         <div class="row mb-5">
-            <div class="col-md-7 pr-md-7 mb-5">
+            <div class="col-md-7 pr-md-7 mb-5" style=" text-align-last: center; min-width: -webkit-fill-available;">
                 <form action="#" method="post">
-                    <h2>@ViewBag.message</h2>
-                    <h3>Are you sure you want to add this prescription?</h3>
+                    <h2 style=" font-family: cursive; font-size: 30px;">Our services have reviewed your request and these are the results:</h2>
+                    <br/>
+                    <h2 style=" font-family: cursive; font-size: 30px;">@ViewBag.message</h2>
+                    <br />
+                    <h3 style=" font-family: cursive; font-size: 30px;">Are you sure you want to add this prescription?</h3>
                     <div class="form-group">
                         <input type="hidden" value="@Model.Id" id="id" name="id" />
                     </div>
@@ -33,8 +36,8 @@
                         <input type="hidden" value="@Model.Ndc" id="ndc" name="ndc" />
                     </div>
 
-                    <input name="submit" type="submit" id="submit" value="Add Prescription" />
-                    <input name="submit" type="submit" id="process" value="Cancel" />
+                    <input name="submit" type="submit" id="submit" value="Add Prescription" class="btn btn-primary py-3 px-5"/>
+                    <input name="submit" type="submit" id="process" value="Cancel" class="btn btn-primary py-3 px-5"/>
 
                 </form>
             </div>
