@@ -22,8 +22,8 @@ namespace BL
             mail.To.Add(mailAdress);
             mail.From = new MailAddress("medical333@gmail.com");
             mail.Subject = " Welcome to medical website! ";
-            mail.Body ="Hi "+ d.FirstName+ ", Welcome to medical website!" + "<br/>" + "<br/>" + "Here is your login information" + "<br/>" + "<br/>" + "User Name: " +d.UserName + 
-                "<br/>" +"Password: "+ d.Password;
+            mail.Body ="<b>Hi "+ d.FirstName+ ", Welcome to Medically website!</b>" + "<br/>" + "<br/>" + "Here is your login information: " + "<br/>" + "<br/>" + "<b>User Name: </b>" +d.UserName + 
+                "<br/>" +"<b>Password: </b>"+ d.Password+"<br/>" + "<br/>"+ "<img src='https://lh3.googleusercontent.com/-2kyAPb3f4zM/X4x6XfrWO2I/AAAAAAAAZRQ/_uyqVy32bVMPtpR2f8gZgxrfLFOJfPCrACK8BGAsYHg/s0/2020-10-18.png'  width='100' />";
             mail.IsBodyHtml = true;
             smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
@@ -33,12 +33,12 @@ namespace BL
             try
             {
                 smtp.Send(mail);
-                string message = "הרופא נוסף בהצלחה";
+                string message = "The doctor was successfully added";
                 return message;
             }
             catch
             {
-                string message = "משהו השתבש בשליחת המייל :(";
+                string message = "Something went wrong while sending the email :(";
                 return message;
             }
             //try
