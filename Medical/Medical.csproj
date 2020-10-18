@@ -129,6 +129,7 @@
     <Content Include="images\img_2.jpg" />
     <Content Include="images\img_3.jpg" />
     <Content Include="images\img_4.jpg" />
+    <Content Include="images\logo.png" />
     <Content Include="images\patient_1.jpg" />
     <Content Include="images\person_1.jpg" />
     <Content Include="images\person_2.jpg" />
@@ -304,6 +305,7 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Patient\AreYouSure.cshtml" />
     <Content Include="Views\Patient\Print.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
