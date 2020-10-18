@@ -84,18 +84,20 @@
             </div>
         </div>
     </div>*@
-<div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <h4>Prescription</h4>
+<div class="container col-md-auto align-items-center">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h4 class="container col-md-auto align-items-center">Prescription</h4>
     <hr />
     <br />
     <div id="details">
-        <div id="prescriptionDetails">
+        <div id="prescriptionDetails" class="container d-flex align-items-center">
             @*<p>
                     <b>@Html.DisplayName("Prescription date:")</b>
                     @Html.DisplayFor(model => model.prescription.PrescriptionDate)
@@ -114,7 +116,7 @@
                 <b>Patient Details: </b>
             </p>
             <table>
-                
+
                 <tr>
                     <td>    </td>
                     <td>
@@ -122,7 +124,8 @@
                         @ViewBag.PatientName
                     </td>
                 </tr>
-                <tr><td> </td>
+                <tr>
+                    <td> </td>
                     <td>
                         <b>@Html.DisplayName("ID: ")</b>
                         @Html.DisplayFor(model => model.PatientId)
