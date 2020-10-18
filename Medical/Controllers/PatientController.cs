@@ -34,17 +34,30 @@ namespace Medical.Controllers
         {
             TempData["ID"] = id;
             ViewBag.id = id;
+            PatientModel m = new PatientModel();
+            ViewBag.first = m.GetPatients().Where(x => x.Id == id).FirstOrDefault().FirstName;
+            TempData["first"] = ViewBag.first;
+            ViewBag.last = m.GetPatients().Where(x => x.Id == id).FirstOrDefault().LastName;
+            TempData["last"] = ViewBag.first;
             MedicineModel model = new MedicineModel();
             return View(model.GetMedicines()) ;
         }
         [HttpPost]
         public ActionResult Prescription_(FormCollection collection)
-        {        
+        {
             var ID = TempData["ID"];
+            var first = TempData["first"];
+            var last = TempData["last"];
+            //var ID = collection["PatientId"];
             if (DateTime.Parse(collection["BeginDate"]) > DateTime.Parse(collection["FinishDate"]))
             {
                 ViewBag.errorDate = "Begin date should be before the finish date";
+                TempData["ID"] = ID;
                 ViewBag.id = ID;
+                TempData["first"] = first;
+                ViewBag.first = first;
+                TempData["last"] = last;
+                ViewBag.last = last;
                 MedicineModel model = new MedicineModel();
                 return View(model.GetMedicines());
             }
@@ -57,8 +70,9 @@ namespace Medical.Controllers
                 Medicine = collection["Medicine"],
                 BeginTime = DateTime.Parse(collection["BeginDate"]),
                 FinishTime = DateTime.Parse(collection["FinishDate"]),
+                Frequency= collection["Frequency"],
+                Comments = collection["Comments"],
                 Ndc =  medicines.GetMedicines().Where(x => x.CommercialName == collection["Medicine"].ToString()).FirstOrDefault().NDC //get current prescription ndc
-
         });
         }
 
@@ -82,7 +96,7 @@ namespace Medical.Controllers
             if (submit == "Add Prescription")
             {
                 PatientModel model = new PatientModel();
-                model.AddPrescription(collection["id"], collection["first"], collection["last"], collection["medicine"], collection["begin"], collection["finish"], collection["ndc"]);
+                model.AddPrescription(collection["id"], collection["first"], collection["last"], collection["medicine"], collection["begin"], collection["finish"], collection["ndc"],collection["Frequency"], collection["Comments"]);
             }
             var Model = new PatientModel();
             return View("Patients", Model.GetPatients());

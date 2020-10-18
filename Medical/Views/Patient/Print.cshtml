@@ -91,13 +91,11 @@
     <br />
     <br />
     <br />
-    <br />
-    <br />
-    <h4 class="container col-md-auto align-items-center">Prescription</h4>
+    <h4 >Prescription</h4>
     <hr />
     <br />
     <div id="details">
-        <div id="prescriptionDetails" class="container d-flex align-items-center">
+        <div id="prescriptionDetails" >
             @*<p>
                     <b>@Html.DisplayName("Prescription date:")</b>
                     @Html.DisplayFor(model => model.prescription.PrescriptionDate)
@@ -154,7 +152,7 @@
         <hr />
         <table>
             <tr>
-                <td></td>
+
                 <td>
                     <b>@Html.DisplayName("Commercial Name: ")</b>
                     @Html.DisplayFor(model => model.Medicine)
@@ -164,20 +162,21 @@
                         @Html.DisplayFor(model => model.prescription.GetMedicine().Name)
                     </td>*@
             </tr>
-            @*<tr>
-                    <td>
-                        <b>@Html.DisplayName("Serving Option:")</b>
-                        @Html.DisplayFor(model => model.prescription.GetMedicine().ServingOption)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>@Html.DisplayName("Frequency: ")</b>
-                        @Html.DisplayFor(model => model.NumOfTimes) times in a @Html.DisplayFor(model => model.Frequency)
-                    </td>
-                </tr>*@
+
+
             <tr>
-                <td></td>
+                <td>
+                    <b>@Html.DisplayName("Frequency: ")</b>
+                    @Html.DisplayFor(model => model.Frequency)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayName("Comments:")</b>
+                    @Html.DisplayFor(model => model.Comments)
+                </td>
+            </tr>
+            <tr>
                 <td>
                     <br />
                     <b>Start date: </b>
@@ -195,14 +194,16 @@
         <br />
         <br />
         <br />
-        <br />
-        <br />
-        <br />
+
 
         <br />
         <p>Doctor's signature:___________________________________________</p>
     </div>
-    <button class="btn btn-primary" style="width:auto; background-color:maroon" onclick="window.print()"><i class="fa fa-print"></i> Print</button>
+    <button class="btn btn-primary" style="width:auto; font-family: Microsoft YaHei; color:white; background-color:maroon" onclick="window.print()"><i class="fa fa-print"></i> Print</button>
+    <br />
+    <br />
+    <br />
 </div>
+
 }
 
