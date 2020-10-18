@@ -34,17 +34,30 @@ namespace Medical.Controllers
         {
             TempData["ID"] = id;
             ViewBag.id = id;
+            PatientModel m = new PatientModel();
+            ViewBag.first = m.GetPatients().Where(x => x.Id == id).FirstOrDefault().FirstName;
+            TempData["first"] = ViewBag.first;
+            ViewBag.last = m.GetPatients().Where(x => x.Id == id).FirstOrDefault().LastName;
+            TempData["last"] = ViewBag.first;
             MedicineModel model = new MedicineModel();
             return View(model.GetMedicines()) ;
         }
         [HttpPost]
         public ActionResult Prescription_(FormCollection collection)
-        {        
+        {
             var ID = TempData["ID"];
+            var first = TempData["first"];
+            var last = TempData["last"];
+            //var ID = collection["PatientId"];
             if (DateTime.Parse(collection["BeginDate"]) > DateTime.Parse(collection["FinishDate"]))
             {
                 ViewBag.errorDate = "Begin date should be before the finish date";
+                TempData["ID"] = ID;
                 ViewBag.id = ID;
+                TempData["first"] = first;
+                ViewBag.first = first;
+                TempData["last"] = last;
+                ViewBag.last = last;
                 MedicineModel model = new MedicineModel();
                 return View(model.GetMedicines());
             }
@@ -58,7 +71,6 @@ namespace Medical.Controllers
                 BeginTime = DateTime.Parse(collection["BeginDate"]),
                 FinishTime = DateTime.Parse(collection["FinishDate"]),
                 Ndc =  medicines.GetMedicines().Where(x => x.CommercialName == collection["Medicine"].ToString()).FirstOrDefault().NDC //get current prescription ndc
-
         });
         }
 
@@ -162,22 +174,28 @@ namespace Medical.Controllers
         public ActionResult Print(int id)
         {
             PatientModel model = new PatientModel();
+
             var Prescription = model.GetPrescriptions().First(m => m.Id == id);
+            Patient patient = model.GetPatients().First(p => p.Id == Prescription.PatientId);
+            ViewBag.PatientName = patient.FirstName + " " + patient.LastName;
+            ViewBag.PatientEmail = patient.Email;
+            ViewBag.PatientPhone=patient.Phone;
+
             return View(Prescription);
         }
-        [HttpPost]
-        public ActionResult Print(FormCollection collection)
-        {
-            try
-            {
+        //[HttpPost]
+        //public ActionResult Print(FormCollection collection)
+        //{
+        //    try
+        //    {
                
-                return RedirectToAction("Patients");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return View(); 
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
 
     }

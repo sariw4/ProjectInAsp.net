@@ -6,13 +6,18 @@
 }
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        
+
+    @*<div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -75,9 +80,126 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Print" style="width:auto; background-color:maroon" class="btn btn-primary" />
+                <button class="btn btn-primary" style="width:auto; background-color:maroon" onclick="window.print()"><i class="fa fa-print"></i> Print</button>
             </div>
         </div>
+    </div>*@
+<div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h4>Prescription</h4>
+    <hr />
+    <br />
+    <div id="details">
+        <div id="prescriptionDetails">
+            @*<p>
+                    <b>@Html.DisplayName("Prescription date:")</b>
+                    @Html.DisplayFor(model => model.prescription.PrescriptionDate)
+                </p>*@
+            <p>
+                <b>By: </b>@($"DR. {Model.DoctorFirstName + " " + Model.DoctorLastName}")
+            </p>
+            @*<p>
+                    <b>@Html.DisplayName("Employee license num:")</b>
+                    @Html.DisplayFor(model => model.prescription.GetDoctor().LicenseNum)
+                </p>*@
+        </div>
+        <hr />
+        <div>
+            <p>
+                <b>Patient Details: </b>
+            </p>
+            <table>
+                
+                <tr>
+                    <td>    </td>
+                    <td>
+                        <b>@Html.DisplayName("Full Name: ")</b>
+                        @ViewBag.PatientName
+                    </td>
+                </tr>
+                <tr><td> </td>
+                    <td>
+                        <b>@Html.DisplayName("ID: ")</b>
+                        @Html.DisplayFor(model => model.PatientId)
+                    </td>
+                    @*<td>
+                            <b>@Html.DisplayName("Age: ")</b>
+                            @Html.Label(Model.prescription.GetPatient().GetAge().ToString())
+                        </td>*@
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <b>@Html.DisplayName("Phone: ")</b>
+                        @ViewBag.PatientEmail
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <b>@Html.DisplayName("Mail: ")</b>
+                        @ViewBag.PatientPhone
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <hr />
+        <table>
+            <tr>
+                <td></td>
+                <td>
+                    <b>@Html.DisplayName("Commercial Name: ")</b>
+                    @Html.DisplayFor(model => model.Medicine)
+                </td>
+                @*<td>
+                        <b>@Html.DisplayName("Name:")</b>
+                        @Html.DisplayFor(model => model.prescription.GetMedicine().Name)
+                    </td>*@
+            </tr>
+            @*<tr>
+                    <td>
+                        <b>@Html.DisplayName("Serving Option:")</b>
+                        @Html.DisplayFor(model => model.prescription.GetMedicine().ServingOption)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>@Html.DisplayName("Frequency: ")</b>
+                        @Html.DisplayFor(model => model.NumOfTimes) times in a @Html.DisplayFor(model => model.Frequency)
+                    </td>
+                </tr>*@
+            <tr>
+                <td></td>
+                <td>
+                    <br />
+                    <b>Start date: </b>
+                    @Html.Label(Model.BeginTime.ToShortDateString())
+                </td>
+                <td>
+                    <br />
+                    <b>End date: </b>
+                    @Html.Label(Model.FinishTime.ToShortDateString())
+                </td>
+            </tr>
+        </table>
+        <hr />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <br />
+        <p>Doctor's signature:___________________________________________</p>
     </div>
+    <button class="btn btn-primary" style="width:auto; background-color:maroon" onclick="window.print()"><i class="fa fa-print"></i> Print</button>
+</div>
 }
 
