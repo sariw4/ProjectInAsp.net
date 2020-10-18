@@ -95,18 +95,18 @@
     <hr />
     <br />
     <div id="details">
-        <div id="prescriptionDetails" >
+        <div id="prescriptionDetails">
             @*<p>
-                    <b>@Html.DisplayName("Prescription date:")</b>
-                    @Html.DisplayFor(model => model.prescription.PrescriptionDate)
-                </p>*@
+                <b>@Html.DisplayName("Prescription date:")</b>
+                @Html.DisplayFor(model => model.prescription.PrescriptionDate)
+            </p>*@
             <p>
                 <b>By: </b>@($"DR. {Model.DoctorFirstName + " " + Model.DoctorLastName}")
             </p>
             @*<p>
-                    <b>@Html.DisplayName("Employee license num:")</b>
-                    @Html.DisplayFor(model => model.prescription.GetDoctor().LicenseNum)
-                </p>*@
+                <b>@Html.DisplayName("Employee license num:")</b>
+                @Html.DisplayFor(model => model.prescription.GetDoctor().LicenseNum)
+            </p>*@
         </div>
         <hr />
         <div>
@@ -129,9 +129,9 @@
                         @Html.DisplayFor(model => model.PatientId)
                     </td>
                     @*<td>
-                            <b>@Html.DisplayName("Age: ")</b>
-                            @Html.Label(Model.prescription.GetPatient().GetAge().ToString())
-                        </td>*@
+                        <b>@Html.DisplayName("Age: ")</b>
+                        @Html.Label(Model.prescription.GetPatient().GetAge().ToString())
+                    </td>*@
                 </tr>
                 <tr>
                     <td></td>
@@ -150,6 +150,9 @@
             </table>
         </div>
         <hr />
+        <p>
+            <b>Medicine Details: </b>
+        </p>
         <table>
             <tr>
 
@@ -158,34 +161,38 @@
                     @Html.DisplayFor(model => model.Medicine)
                 </td>
                 @*<td>
-                        <b>@Html.DisplayName("Name:")</b>
-                        @Html.DisplayFor(model => model.prescription.GetMedicine().Name)
-                    </td>*@
+                    <b>@Html.DisplayName("Name:")</b>
+                    @Html.DisplayFor(model => model.prescription.GetMedicine().Name)
+                </td>*@
             </tr>
+
 
 
             <tr>
                 <td>
+
+                    <b>Start date: </b>
+                    @Html.Label(Model.BeginTime.ToShortDateString())
+                </td>
+                <td>
+
+                    <b>End date: </b>
+                    @Html.Label(Model.FinishTime.ToShortDateString())
+                </td>
+            </tr>
+            <tr>
+                <td>
+
                     <b>@Html.DisplayName("Frequency: ")</b>
                     @Html.DisplayFor(model => model.Frequency)
                 </td>
             </tr>
             <tr>
+
                 <td>
+
                     <b>@Html.DisplayName("Comments:")</b>
                     @Html.DisplayFor(model => model.Comments)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                    <b>Start date: </b>
-                    @Html.Label(Model.BeginTime.ToShortDateString())
-                </td>
-                <td>
-                    <br />
-                    <b>End date: </b>
-                    @Html.Label(Model.FinishTime.ToShortDateString())
                 </td>
             </tr>
         </table>
