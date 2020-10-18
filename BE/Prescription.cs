@@ -17,6 +17,8 @@ namespace BE
         [DisplayName("Doctor Last Name")]
         public string DoctorLastName { get; set; }
         public string Medicine { get; set; }
+        public string Frequency { get; set; }
+        public string Comments { get; set; }
         [DisplayName("Begin Time")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BeginTime { get; set; }
@@ -25,12 +27,14 @@ namespace BE
         public DateTime FinishTime { get; set; }
         public string Ndc { get; set; }
         public Prescription() { }
-        public Prescription(int patientId, string doctorFirstName, string doctorLastName, string medicine, DateTime beginTime, DateTime finishTime ,string ndc)
+        public Prescription(int patientId, string doctorFirstName, string doctorLastName, string medicine, DateTime beginTime, DateTime finishTime ,string ndc, string frequency, string comments = null)
         {
             PatientId = patientId;
             DoctorFirstName =doctorFirstName;
             DoctorLastName = doctorLastName;
             Medicine = medicine;
+            Frequency = frequency;
+            Comments = comments;
             BeginTime = beginTime;
             FinishTime = finishTime;
             Ndc = ndc;
@@ -42,6 +46,8 @@ namespace BE
             DoctorFirstName = prescription.DoctorFirstName;
             DoctorLastName = prescription.DoctorLastName;
             Medicine = prescription.Medicine;
+            Frequency = prescription.Frequency;
+            Comments = prescription.Comments;
             BeginTime = prescription.BeginTime;
             FinishTime = prescription.FinishTime;
             Ndc = prescription.Ndc;

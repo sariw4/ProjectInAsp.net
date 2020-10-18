@@ -70,6 +70,8 @@ namespace Medical.Controllers
                 Medicine = collection["Medicine"],
                 BeginTime = DateTime.Parse(collection["BeginDate"]),
                 FinishTime = DateTime.Parse(collection["FinishDate"]),
+                Frequency= collection["Frequency"],
+                Comments = collection["Comments"],
                 Ndc =  medicines.GetMedicines().Where(x => x.CommercialName == collection["Medicine"].ToString()).FirstOrDefault().NDC //get current prescription ndc
         });
         }
@@ -94,7 +96,7 @@ namespace Medical.Controllers
             if (submit == "Add Prescription")
             {
                 PatientModel model = new PatientModel();
-                model.AddPrescription(collection["id"], collection["first"], collection["last"], collection["medicine"], collection["begin"], collection["finish"], collection["ndc"]);
+                model.AddPrescription(collection["id"], collection["first"], collection["last"], collection["medicine"], collection["begin"], collection["finish"], collection["ndc"],collection["Frequency"], collection["Comments"]);
             }
             var Model = new PatientModel();
             return View("Patients", Model.GetPatients());

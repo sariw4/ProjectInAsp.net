@@ -23,11 +23,14 @@ namespace Medical.Controllers
             try
             {
                 RouteConfig.user=model.ReturnUser(collection["uname"], collection["psw"]);
-                return RedirectToAction("Index");
+                if (RouteConfig.user == null)
+                {
+                    Response.Write("<script>alert('The username or password you entered is incorrect');</script>");
+                }
+                return View();
             }
             catch
             {
-                ViewBag.message = "The username or password you entered is incorrect!";
                 return View();
             }
         }
@@ -41,6 +44,10 @@ namespace Medical.Controllers
             MedicineModel model = new MedicineModel();
             var Medicines = model.GetMedicines();
             return View(Medicines);
+        }
+        public ActionResult AboutUs()
+        {
+            return View();
         }
         // GET: Home/Details/5
         public ActionResult Details(int id)
