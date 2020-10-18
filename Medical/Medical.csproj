@@ -303,6 +303,7 @@
     <Content Include="Views\Patient\Prescription_.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Patient\AreYouSure.cshtml" />
+    <Content Include="Views\Patient\Print.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

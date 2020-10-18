@@ -42,6 +42,11 @@ namespace Medical.Models
             bl.Removepatients(id);
 
         }
+        public IEnumerable<Prescription> GetPrescriptions()
+        {
+            return bl1.GetPrescriptions();
+
+        }
         public IEnumerable<Prescription> GetPrescriptionsById(int id)
         {
             return bl1.GetPrescriptionsById(id);

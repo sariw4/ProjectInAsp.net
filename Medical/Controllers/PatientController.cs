@@ -159,5 +159,32 @@ namespace Medical.Controllers
                 return View();
             }
         }
+        public ActionResult Print(int id)
+        {
+            PatientModel model = new PatientModel();
+
+            var Prescription = model.GetPrescriptions().First(m => m.Id == id);
+            Patient patient = model.GetPatients().First(p => p.Id == Prescription.PatientId);
+            ViewBag.PatientName = patient.FirstName + " " + patient.LastName;
+            ViewBag.PatientEmail = patient.Email;
+            ViewBag.PatientPhone=patient.Phone;
+
+            return View(Prescription);
+        }
+        //[HttpPost]
+        //public ActionResult Print(FormCollection collection)
+        //{
+        //    try
+        //    {
+               
+        //        return View(); 
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
+
+
     }
 }
