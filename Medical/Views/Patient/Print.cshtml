@@ -157,22 +157,24 @@
                     @Html.DisplayFor(model => model.Medicine)
                 </td>
                 @*<td>
-                        <b>@Html.DisplayName("Name:")</b>
-                        @Html.DisplayFor(model => model.prescription.GetMedicine().Name)
-                    </td>*@
+                <b>@Html.DisplayName("Name:")</b>
+                @Html.DisplayFor(model => model.prescription.GetMedicine().Name)
+            </td>*@
             </tr>
-            @*<tr>
-                    <td>
-                        <b>@Html.DisplayName("Serving Option:")</b>
-                        @Html.DisplayFor(model => model.prescription.GetMedicine().ServingOption)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>@Html.DisplayName("Frequency: ")</b>
-                        @Html.DisplayFor(model => model.NumOfTimes) times in a @Html.DisplayFor(model => model.Frequency)
-                    </td>
-                </tr>*@
+
+
+            <tr>
+                <td>
+                    <b>@Html.DisplayName("Frequency: ")</b>
+                    @Html.DisplayFor(model => model.Frequency)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayName("Comments:")</b>
+                    @Html.DisplayFor(model => model.Comments)
+                </td>
+            </tr>
             <tr>
                 <td></td>
                 <td>
@@ -199,7 +201,7 @@
         <br />
         <p>Doctor's signature:___________________________________________</p>
     </div>
-    <button class="btn btn-primary" style="width:auto; background-color:maroon" onclick="window.print()"><i class="fa fa-print"></i> Print</button>
+    <button class="blue-btn" style="width:auto; background-color:maroon" onclick="window.print()"><i class="fa fa-print"></i> Print</button>
 </div>
 }
 

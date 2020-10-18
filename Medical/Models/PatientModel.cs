@@ -51,13 +51,13 @@ namespace Medical.Models
         {
             return bl1.GetPrescriptionsById(id);
         }
-        public void AddPrescription(string PatientId,string docfirst,string doclast,string medicine,string begin,string finish ,string ndc)
+        public void AddPrescription(string PatientId,string docfirst,string doclast,string medicine,string begin,string finish ,string ndc,string frequency,string comments)
         {
             int patientID = Convert.ToInt32(PatientId);
             DateTime begindate = Convert.ToDateTime(begin);
             DateTime finishdate = Convert.ToDateTime(finish);
             //Medicine newm = new Medicine(blm.GetMedicines().FirstOrDefault(m => m.CommercialName == medicine));
-            Prescription prescription = new Prescription(patientID, docfirst, doclast, medicine, begindate, finishdate,ndc);
+            Prescription prescription = new Prescription(patientID, docfirst, doclast, medicine, begindate, finishdate,ndc, frequency,comments);
             bl1.InsertPrescription(prescription);
         }
 

@@ -35,34 +35,46 @@
         <th>
             @Html.DisplayNameFor(model => model.FinishTime)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Frequency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PatientId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoctorFirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoctorLastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Medicine)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BeginTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FinishTime)
-            </td>
-            <td>
-                <button type="button" style="width:auto; color:white; background-color:maroon" class="fa fa-print" onclick="location.href='@Url.Action("Print","Patient",new { id = item.Id })'"></button>
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.PatientId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DoctorFirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DoctorLastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Medicine)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BeginTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FinishTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Frequency)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Comments)
+    </td>
+    <td>
+        <button type="button" style="width:auto; color:white; background-color:maroon" class="blue-btn" onclick="location.href='@Url.Action("Print","Patient",new { id = item.Id })'"><i class="fa fa-print"></i></button>
+    </td>
+</tr>
     }
 
 </table>
