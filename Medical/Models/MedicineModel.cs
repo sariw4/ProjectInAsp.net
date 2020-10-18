@@ -50,7 +50,7 @@ namespace Medical.Models
             List<string>CountList=new List<string>();
             Medicine med = bl.GetMedicines().FirstOrDefault(m => m.Id == id);
             IEnumerable <Prescription> Prescriptions = bl1.GetPrescriptionsByNameMed(med.CommercialName);
-            for (int i = DateTime.Now.Month-7; i < DateTime.Now.Month; i++)
+            for (int i = DateTime.Now.Month-7; i < DateTime.Now.Month+1; i++)
             {
                 foreach (var prescription in Prescriptions)
                 {
