@@ -39,12 +39,14 @@ namespace Medical.Controllers
         }
         [HttpPost]
         public ActionResult Prescription_(FormCollection collection)
-        {        
+        {
             var ID = TempData["ID"];
+            //var ID = collection["PatientId"];
             if (DateTime.Parse(collection["BeginDate"]) > DateTime.Parse(collection["FinishDate"]))
             {
                 ViewBag.errorDate = "Begin date should be before the finish date";
-                ViewBag.id = ID;
+                TempData["ID"] = ID;
+                ViewBag.id = ID;              
                 MedicineModel model = new MedicineModel();
                 return View(model.GetMedicines());
             }
@@ -58,7 +60,6 @@ namespace Medical.Controllers
                 BeginTime = DateTime.Parse(collection["BeginDate"]),
                 FinishTime = DateTime.Parse(collection["FinishDate"]),
                 Ndc =  medicines.GetMedicines().Where(x => x.CommercialName == collection["Medicine"].ToString()).FirstOrDefault().NDC //get current prescription ndc
-
         });
         }
 
