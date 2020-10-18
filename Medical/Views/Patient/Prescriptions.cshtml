@@ -4,6 +4,8 @@
     ViewBag.Title = "Prescriptions";
     Layout = "~/Views/LayoutPage.cshtml";
 }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">‏
 
 
 
@@ -56,6 +58,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FinishTime)
+            </td>
+            <td>
+                <button type="button" style="width:auto; color:white; background-color:maroon" class="fa fa-print" onclick="location.href='@Url.Action("Print","Patient",new { id = item.Id })'"></button>
             </td>
         </tr>
     }
