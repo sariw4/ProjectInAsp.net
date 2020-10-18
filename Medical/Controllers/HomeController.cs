@@ -101,7 +101,8 @@ namespace Medical.Controllers
             }
             else
             {
-                ViewBag.message = "The image that you added isn't a medicine!";
+                TempData["message"] = "The image that you chose isn't a medicine!";
+                TempData["id"] = id;
                 return RedirectToAction("Catalog");
             }
 
