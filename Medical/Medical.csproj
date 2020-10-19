@@ -135,6 +135,10 @@
     <Content Include="images\person_1.jpg" />
     <Content Include="images\person_2.jpg" />
     <Content Include="images\person_3.jpg" />
+    <Content Include="images\sari.jpg" />
+    <Content Include="images\sari1.jpeg" />
+    <Content Include="images\sari3.png" />
+    <Content Include="images\tal2.jpg" />
     <Content Include="images\unnamed.png" />
     <Content Include="js\aos.js" />
     <Content Include="js\bootstrap-datepicker.min.js" />
