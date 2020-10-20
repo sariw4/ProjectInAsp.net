@@ -77,5 +77,21 @@ namespace DAL
             }
             catch (Exception e) { throw new Exception(e.Message); }
         }
+        public IEnumerable<string> GetNDCById(int id)
+        {
+
+
+            IEnumerable<Prescription> prescriptions = GetPrescriptionsById(id);
+            List<string> NDC = new List<string>();
+            foreach (var item in prescriptions)
+            {
+                if (item.PatientId == id)
+                {
+                    NDC.Add(item.Ndc);
+                }
+            }
+            return NDC;
+
+        }
     }
 }

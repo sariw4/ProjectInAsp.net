@@ -28,16 +28,7 @@ namespace BL
         public IEnumerable<string> GetNDCById(string id)
         {
             int Id = int.Parse(id);
-            IEnumerable<Prescription> prescriptions= dal.GetPrescriptionsById(Id);
-            List<string> NDC = new List<string>();
-            foreach(var item in prescriptions)
-            {
-                if(item.PatientId==Id)
-                {
-                    NDC.Add(item.Ndc);
-                }
-            }
-            return NDC;
+            return dal.GetNDCById(Id);
 
         }
         public IEnumerable<Prescription> GetPrescriptionsByNameMed(string med)
